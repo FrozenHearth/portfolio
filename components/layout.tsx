@@ -25,7 +25,8 @@ export default function Layout({ children }: LayoutProps) {
           as="style"
         /> */}
       </Head>
-      <div className="flex min-h-screen">
+
+      <div className="antialiased max-w-4xl mb-40 flex flex-col md:flex-row mx-4 mt-8 md:mt-20 lg:mt-32 lg:mx-auto">
         <Navbar />
         <main className="container mx-auto flex-1">
           <section>{children}</section>
