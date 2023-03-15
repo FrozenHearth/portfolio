@@ -28,7 +28,7 @@ export async function getStaticProps() {
 export default function Blog({ posts }) {
   return (
     <div>
-      <h1 className="text-2xl">Blog</h1>
+      <h1 className="text-4xl font-semibold">BLOG</h1>
       {posts.map(({ slug, frontmatter }) => (
         <div key={slug} className="my-4 overflow-hidden flex flex-col">
           <Link href={`/blog/${slug}`}>

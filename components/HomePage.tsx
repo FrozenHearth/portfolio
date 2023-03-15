@@ -1,26 +1,39 @@
 import Image from 'next/image';
+import avatar from '../public/images/me.avif';
 
 export default function HomePage() {
   return (
     <>
       <h1 className="text-4xl font-semibold">Vishwanath B.</h1>
-      <p className="my-5 text-slate-700">{`Hey, I'm Vishwanath. I'm a 27 y/o software engineer passionate about everything frontend.`}</p>
-      <Image
-        src="/images/me.jpeg" // Route of the image file
-        height={100} // Desired size with correct aspect ratio
-        width={100} // Desired size with correct aspect ratio
-        alt="Vishwanath"
-        priority
-        className="rounded-full"
-      />
-      <p className="my-5 text-slate-700">
+      <p className="pt-5 text-slate-700">{`Hi, I'm Vishwanath. I'm a 27 y/o software engineer passionate about everything frontend.`}</p>
+
+      <p className="text-slate-700">
         I love contributing to open source, and tinkering with frontend
         technologies, always having the curiousity to learn something new.
-        Currently, looking for a Frontend/Senior Frontend role at a medium sized
-        startup/company.
+        <Image
+          src={avatar}
+          style={{ height: '100px' }}
+          width={100}
+          priority
+          alt="Vishwanath B."
+          className="rounded-full object-cover object-top mt-4"
+        />
+        <br />
+        <span className="font-semibold block">Stuff I know:</span>
+        <span>
+          HTML, CSS/SASS, Javascript/Typescript, React, Redux, Vue, Vuex,
+          Next.js(learning currently).
+        </span>
+        <br />
+        <br />
+        <span className="italic font-semibold">
+          Currently, looking for a Senior Frontend role at a medium sized
+          startup/company like Razorpay/Cred/Groww etc, where I can learn a huge
+          amount, as well as contribute significantly.
+        </span>
       </p>
 
-      <p className="my-5 text-lg font-semibold">Link to my resume below:</p>
+      <p className="my-5 text-lg font-semibold">LINK TO MY RESUME BELOW:</p>
 
       <button className="bg-slate-900 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400">
         Download
