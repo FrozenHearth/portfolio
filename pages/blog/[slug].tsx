@@ -36,9 +36,10 @@ export default function PostPage({ meta, content }) {
         <title>{meta.title}</title>
       </Head>
       <div className="prose dark mx-auto">
-        <h1>{meta.title}</h1>
+        <h1 className="mb-0">{meta.title}</h1>
+        <span className="text-slate-400 rounded p-1 text-sm">{meta.date}</span>
         <article
-          className="m-auto my-4 sm:my-16"
+          className="m-auto mb-4 sm:mb-16 sm:-mt-8 min-[320px]:-mt-4"
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </div>
