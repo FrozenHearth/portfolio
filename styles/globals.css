@@ -8,6 +8,10 @@
   }
 } */
 
+body {
+  background-color: #000;
+}
+
 html {
   min-width: 360px;
 }
