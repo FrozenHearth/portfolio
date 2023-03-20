@@ -25,7 +25,7 @@ However, arrow functions have certain rules:
 
 The first point is extremely important. Perhaps the most important rule of an arrow function is that it doesn't have it's own `this` binding. In this post, we'll only cover the first point.
 
-For example, let's take an example of setTimeout.
+Let's take an example of `setTimeout`
 
 ```js
 const obj = {

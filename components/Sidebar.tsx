@@ -16,16 +16,22 @@ type NavItems = {
 
 const navItems: NavItems = {
   '/': {
-    name: 'home',
+    name: 'Home',
     x: 0,
     y: 0,
-    w: '64px',
+    w: '65px',
   },
-  '/blog': {
-    name: 'blog',
+  '/about': {
+    name: 'About',
     x: 64,
     y: 35,
     w: '65px',
+  },
+  '/blog': {
+    name: 'Blog',
+    x: 128,
+    y: 70,
+    w: '56px',
   },
 };
 
@@ -48,8 +54,7 @@ export default function Navbar() {
                 {/* Desktop version, hidden on mobile, animates y axis */}
                 <div className="hidden md:block">
                   <motion.div
-                    className="absolute bg-neutral-100 dark:bg-neutral-800 h-[34px] rounded-md z-[-1]"
-                    layoutId="test2"
+                    className="absolute bg-neutral-800 h-[34px] rounded-md z-[-1] "
                     initial={{ opacity: 0, y: navItems[pathname].y }}
                     animate={{
                       opacity: 1,
@@ -66,8 +71,7 @@ export default function Navbar() {
                 {/* Mobile version, hidden on desktop, animates x axis */}
                 <div className="block md:hidden">
                   <motion.div
-                    className="absolute bg-neutral-100  h-[34px] rounded-md z-[-1]"
-                    layoutId="test"
+                    className="absolute bg-neutral-800  h-[34px] rounded-md z-[-1]"
                     initial={{ opacity: 0, x: navItems[pathname].x }}
                     animate={{
                       opacity: 1,
@@ -92,10 +96,10 @@ export default function Navbar() {
                   key={path}
                   href={path}
                   className={clsx(
-                    'transition-all hover:text-neutral-800 dark:hover:text-neutral-500 py-[5px] px-[10px]',
+                    'transition-all  hover:text-neutral-200 py-[5px] px-[10px]',
                     {
                       'text-neutral-500': !isActive,
-                      'font-bold': isActive,
+                      'font-bold text-white': isActive,
                     }
                   )}
                 >
