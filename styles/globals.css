@@ -2,12 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-/* @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #000;
-  }
-} */
-
 body {
   background-color: #000;
 }
