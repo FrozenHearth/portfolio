@@ -6,6 +6,7 @@ export interface BlogPostType {
     metaDesc: string;
     summary: string;
     date: string;
+    formattedDate: Date;
     tags: string[];
   };
 }
