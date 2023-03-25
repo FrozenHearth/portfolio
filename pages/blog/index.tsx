@@ -33,8 +33,10 @@ type BlogProps = {
 export default function Blog({ posts }: BlogProps) {
   return (
     <div>
-      <h1 className="text-3xl sm:text-4xl font-semibold text-white">My Blog</h1>
-      <p className="my-2 text-slate-400 text-xl">
+      <h1 className="text-fuchsia-300 text-3xl sm:text-4xl font-bold py-4 md:p-0">
+        My Blog
+      </h1>
+      <p className="my-2 text-slate-300 text-md">
         I write about everything from Javascript to random experiences in my
         life.
       </p>
@@ -42,15 +44,16 @@ export default function Blog({ posts }: BlogProps) {
 
       {posts.map(({ slug, frontmatter }) => (
         <div key={slug} className="my-4 overflow-hidden flex flex-col">
-          <span className="text-neutral-500 text-xs mb-2">
-            {frontmatter.date}
-          </span>
           <Link
-            className="font-semibold text-white text-lg hover:underline"
+            className="text-fuchsia-400 font-extrabold text-2xl hover:underline"
             href={`/blog/${slug}`}
           >
             {frontmatter.title}
           </Link>
+          <span className="text-neutral-500 text-xs mb-2">
+            {frontmatter.date}
+          </span>
+          <span className="text-white text-sm">{frontmatter.summary}</span>
         </div>
       ))}
     </div>
