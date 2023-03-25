@@ -1,3 +1,4 @@
+import Bio from '@/components/Bio';
 import markdownToHtml from '@/lib/markdown';
 import { getAllPosts, getPostBySlug } from '@/lib/post';
 import Head from 'next/head';
@@ -37,13 +38,14 @@ export default function PostPage({ meta, content }) {
       </Head>
       <div className="prose prose-invert mx-auto py-4 md:p-0">
         <h1 className="mb-0">{meta.title}</h1>
-        <span className="text-neutral-500 rounded p-1 text-sm">
+        <span className="text-neutral-500 mt-0 sm:mt-2 rounded text-sm inline-block">
           {meta.date}
         </span>
         <article
           className="m-auto mb-4 sm:mb-16 sm:-mt-8 min-[320px]:-mt-4"
           dangerouslySetInnerHTML={{ __html: content }}
         />
+        <Bio />
       </div>
     </>
   );

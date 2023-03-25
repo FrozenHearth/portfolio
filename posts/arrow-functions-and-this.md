@@ -4,6 +4,7 @@ metaTitle: 'Arrow functions and this keyword'
 metaDesc: 'How arrow functions solve an old this keyword hack.'
 summary: 'How this keyword behaves in arrow functions'
 date: 'Mar 17, 2023'
+formattedDate: 'Mar-17-2023'
 tags:
   - arrow functions, this, javascript
 ---
