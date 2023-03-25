@@ -35,7 +35,7 @@ export default function PostPage({ meta, content }) {
       <Head>
         <title>{meta.title}</title>
       </Head>
-      <div className="prose prose-invert mx-auto">
+      <div className="prose prose-invert mx-auto py-4 md:p-0">
         <h1 className="mb-0">{meta.title}</h1>
         <span className="text-neutral-500 rounded p-1 text-sm">
           {meta.date}

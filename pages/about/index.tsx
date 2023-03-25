@@ -1,9 +1,11 @@
 export default function About() {
   return (
     <>
-      <h1 className="text-white sm:text-4xl text-3xl font-medium">About Me</h1>
+      <h1 className="py-4 md:p-0 text-fuchsia-300 sm:text-4xl text-3xl font-bold">
+        About Me
+      </h1>
 
-      <p className="text-slate-400 mt-4">
+      <p className="text-slate-300 mt-4">
         I started out as a fullstack intern at Red Hat, although most of my work
         was frontend. I learnt Angular, Typescript, Mocha, Node.js, MongoDB and
         GraphQL on the job, successfully delivering a webapp for the internal
@@ -39,7 +41,7 @@ export default function About() {
 
       <hr className="h-px my-8 border-0 bg-gray-700"></hr>
 
-      <h1 className="text-white sm:text-2xl text-xl mt-8 font-medium">
+      <h1 className="text-fuchsia-400 sm:text-2xl text-xl mt-8 font-extrabold">
         Stuff I know:
       </h1>
 

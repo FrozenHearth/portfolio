@@ -1,20 +1,22 @@
-import { remark } from 'remark';
-import html from 'remark-html';
-import prism from 'remark-prism';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypePrism from 'rehype-prism-plus';
+import rehypeStringify from 'rehype-stringify';
+import rehypeExternalLinks from 'rehype-external-links';
 
-export default async function markdownToHtml(markdown) {
-  const result = await remark()
-    // https://github.com/sergioramos/remark-prism/issues/265
-    .use(html, { sanitize: false })
-    .use(prism, {
-      transformInlineCode: true,
-      plugins: [
-        'diff-highlight',
-        'inline-color',
-        'keep-markup',
-        'line-numbers',
-      ],
+export default async function markdownToHtml(
+  markdown: string
+): Promise<string> {
+  const result = await unified()
+    .use(remarkParse)
+    .use(remarkRehype)
+    .use(rehypePrism)
+    .use(rehypeExternalLinks, {
+      target: '_blank',
+      rel: ['noopener', 'noreferrer', 'nofollow'],
     })
+    .use(rehypeStringify)
     .process(markdown);
   return result.toString();
 }
