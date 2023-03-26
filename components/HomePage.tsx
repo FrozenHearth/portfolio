@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import ActionButtons from './ActionButtons';
 import avatar from '../public/images/me.avif';
 
 export default function HomePage() {
