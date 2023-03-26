@@ -33,7 +33,7 @@ export const createOgImage = ({
     `fl_layer_apply,w_140,g_north_west,x_100,y_100`,
 
     // BG
-    `gradient_dark_gpj3ix.avif`,
+    `gradient_dark_mw9rae.webp`,
   ].join('/');
 
 // double escape for commas and slashes
