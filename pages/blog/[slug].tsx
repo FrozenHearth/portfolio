@@ -18,7 +18,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
+export async function getStaticProps({
+  params: { slug },
+}: {
+  params: { slug: string };
+}) {
   const post = getPostBySlug(slug);
   const content = await markdownToHtml(post.content || '');
 
@@ -30,7 +34,15 @@ export async function getStaticProps({ params: { slug } }) {
   };
 }
 
-export default function PostPage({ meta, content }) {
+interface PostPageProps {
+  meta: {
+    title: string;
+    date: string;
+  };
+  content: string;
+}
+
+export default function PostPage({ meta, content }: PostPageProps) {
   return (
     <>
       <Head>

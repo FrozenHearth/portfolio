@@ -43,8 +43,8 @@ export default function Blog({ posts }: BlogProps) {
       {posts
         .sort(
           (a, b) =>
-            new Date(b.frontmatter.formattedDate) -
-            new Date(a.frontmatter.formattedDate)
+            new Date(b.frontmatter.formattedDate).valueOf() -
+            new Date(a.frontmatter.formattedDate).valueOf()
         )
         .map(({ slug, frontmatter }) => (
           <div key={slug} className="my-8 overflow-hidden flex flex-col">

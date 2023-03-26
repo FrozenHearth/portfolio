@@ -113,34 +113,3 @@ export default function Navbar() {
     </aside>
   );
 }
-
-/* 
-        <header className="container mx-auto">
-          <nav className="py-6" aria-label="Global">
-            <div className="flex lg:flex-1">
-              <Link href="/" className="-m-1.5 p-1.5">
-                <span className="sr-only">Vishwanath</span>
-              </Link>
-            </div>
-            <div className="flex gap-x-12">
-              <div className="relative">
-                <Link href="/">Home</Link>
-              </div>
-
-              <Link
-                href="#"
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
-                Blog
-              </Link>
-              <Link
-                href="#"
-                className="text-sm font-semibold leading-6 text-gray-900"
-              >
-                About
-              </Link>
-            </div>
-          </nav>
-        </header>
-
-*/
