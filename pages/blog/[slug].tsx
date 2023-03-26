@@ -54,7 +54,7 @@ export default function PostPage({ meta, content }: PostPageProps) {
           {meta.date}
         </span>
         <article
-          className="m-auto mb-4 sm:mb-16 sm:-mt-8 min-[320px]:-mt-4"
+          className="m-auto mb-4 sm:mb-8 sm:-mt-8 min-[320px]:-mt-4"
           dangerouslySetInnerHTML={{ __html: content }}
         />
         <Bio />
