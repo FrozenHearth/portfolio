@@ -28,10 +28,7 @@ export default function Home() {
           property="og:description"
           content="Welcome to my personal website."
         />
-        <meta
-          property="og:url"
-          content={`https://frozenhearth.vercel.app${router.asPath}`}
-        />
+        <meta property="og:url" content={`https://frozenhearth.vercel.app`} />
       </Head>
       <div className="py-4 md:p-0">
         <HomePage />
