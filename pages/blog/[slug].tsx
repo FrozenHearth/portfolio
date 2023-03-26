@@ -1,6 +1,7 @@
 import Bio from '@/components/Bio';
 import markdownToHtml from '@/lib/markdown';
 import { getAllPosts, getPostBySlug } from '@/lib/post';
+import { createOgImage } from '@/lib/createOGImage';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
@@ -42,12 +43,21 @@ interface PostPageProps {
     summary: string;
     metaDesc: string;
     formattedDate: string;
+    tags: string[];
   };
   content: string;
 }
 
 export default function PostPage({ meta, content }: PostPageProps) {
   const router = useRouter();
+  const ogImage = createOgImage({
+    title: meta.title,
+    meta: [
+      'https://frozenhearth-io.vercel.app',
+      meta.formattedDate,
+      ...meta.tags,
+    ].join(' · '),
+  });
   return (
     <>
       <Head>
@@ -63,6 +73,15 @@ export default function PostPage({ meta, content }: PostPageProps) {
         />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={meta.formattedDate} />
+        {/* <meta
+          property="og:image"
+          content={`https://frozenhearth-io.vercel.app/api/og?username=FrozenHearth&title=${meta.title}`}
+        /> */}
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1600" />
+        <meta property="og:image:height" content="836" />
+        <meta property="og:image:alt" content={meta.title} />
+        <meta name="twitter:card" content="summary_large_image" />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div className="prose prose-invert mx-auto py-4 md:p-0">
