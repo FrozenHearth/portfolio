@@ -20,7 +20,7 @@ export default function Home() {
           property="og:description"
           content="Welcome to my personal website."
         />
-        <meta property="og:image" content={ogImage} />
+        <meta property="og:image" content={`${ogImage}?46578`} />
         <meta property="og:image:width" content="1600" />
         <meta property="og:image:height" content="836" />
         <meta property="og:image:alt" content="Vishwanath B." />
@@ -31,7 +31,7 @@ export default function Home() {
           name="twitter:description"
           content="Welcome to my personal website."
         />
-        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image" content={`${ogImage}?46578`} />
       </Head>
       <div className="py-4 md:p-0">
         <HomePage />

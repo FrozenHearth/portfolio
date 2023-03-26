@@ -9,31 +9,11 @@ tags:
   - debounce, javascript
 ---
 
-## What exactly is debounce?
-
 Being asked to implement `debounce` in an interview is a very common scenario. Normally, in our day-to-day job, we use lodash's debounce package. But understanding how it works under the hood is a whole other ballgame.
 
 A `debounce` is a higher-order function, which is a function that returns another function.
 
-It is a programming practice used to ensure that it limits the rate at which a function gets invoked. An extremely common usage is calling an API with the search term as a parameter as the user types, so that the user can see the search results.
-Imagine the user typing 20 letters, hitting backspace continually, and then typing a few other letters. The API would be unnecessarily get called tons of times. This especially can be a pain with APIs that have rate-limiting set.
-Instead, with debounce, we can reduce the number of times the API is called. Say, we 'debounce' the user input by 500ms - this means that the API will be called after a delay of 500ms after the user stops typing. This reduces the number of API calls significantly.
-
-In other words, `debouncing` is a strategy that lets us improve performance by waiting until a certain amount of time has passed before triggering an event. When the user stops triggering the event, our code will run.
-
-### How we normally use debounce:
-
-```js
-const debouncedFunction = debounce(function() { ... }, 500)
-```
-
-What's the type of our debouncedFunction?
-
-```js
-console.log(typeof debouncedFunction); // `function`
-```
-
-A function itself!
+**Debouncing** can be also be defined as a strategy that lets us improve performance by waiting until a certain amount of time has passed before triggering an event. When the user stops triggering the event, our code will run.
 
 Let's take an example of how we'd use it in a React component:
 
@@ -65,9 +45,9 @@ function TrendingRepo() {
 }
 ```
 
-Without debounce, we'd be calling `fetchTrendingRepos` on each keystroke. With debounce, we can call it 400ms after the user stops typing.
+By implementing debounce, we can optimize the performance of our API calls by delaying the execution of `fetchTrendingRepos` until a certain amount of time has elapsed since the last keystroke. Without debounce, calling fetchTrendingRepos on each keystroke could result in multiple unnecessary API calls and slower response times.
 
-And here's the full implementation:
+## Here's a classic debounce implementation
 
 ```js
 const debounce = (callback, wait) => {
@@ -87,15 +67,15 @@ Whoa, this looks very confusing, doesn't it? The simplest way to understand code
 
 As per our understanding:
 
-1. We want to wait a certain amount before we call our function (for example, a function which calls the API for searching). We want to wait till the user finishes typing.
-2. Our debounce should return a function. Why? This is done to form a closure around the `callback` and `wait` function parameters and the `timeoutId` variable so that their values are preserved.
+1. We want to wait a certain amount before we call our callback function. We want to wait till the user finishes typing.
+2. Our debounce should _return a function_. Why? This is done to form a closure around the `callback` and `wait` function parameters and the `timeoutId` variable so that their values are preserved.
 
 So we need to do a few things:
 
 1. Return a function.
 2. Schedule a timeout, based on the `wait` argument we provide. `wait` will be in milliseconds.
 3. Cancel any pre-existing timeout, as debounce can be called multiple times.
-4. When the timeout expires, we need to call our callback function and feed it whatever arguments we have, with the spread operator. Why? Because the function being returned from debounce is supposed to act exactly the same as the function being provided, except for the fact that we're limiting how often it gets called. This means that if the original function was supposed to take two parameters, the returned function should too. Our callback function is the `fetchTrendingRepos` function in this case.
+4. When the timeout expires, we need to call our callback function and feed it whatever arguments we have, with the spread operator. Why? Because the function being returned from debounce is supposed to act exactly the same as the function being provided, except for the fact that we're limiting how often it gets called. This means that if the original function was supposed to take two parameters, the returned function should too.
 
 With this step-by-step breakdown, we can now construct our debounce function.
 
@@ -103,14 +83,17 @@ With this step-by-step breakdown, we can now construct our debounce function.
 
 ```js
 const debounce = (callback, wait) => {
+  // Return a function.
   return () => {};
 };
 ```
 
 ### Step 2:
 
-```js {2, 5}
+```js {4, 7}
 const debounce = (callback, wait) => {
+  // Schedule a timeout, based on the `wait` argument we provide.
+  // `wait` will be in milliseconds.
   let timeoutId = null;
 
   return () => {
@@ -121,11 +104,13 @@ const debounce = (callback, wait) => {
 
 ### Step 3:
 
-```js {5}
+```js {7}
 const debounce = (callback, wait) => {
   let timeoutId = null;
 
   return () => {
+    // Cancel any pre-existing timeout,
+    // as debounce can be called multiple times.
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {}, wait);
   };
@@ -134,7 +119,7 @@ const debounce = (callback, wait) => {
 
 ### Step 4:
 
-```js {4, 8}
+```js {4, 10}
 const debounce = (callback, wait) => {
   let timeoutId = null;
 
@@ -142,6 +127,8 @@ const debounce = (callback, wait) => {
     clearTimeout(timeoutId);
 
     timeoutId = setTimeout(() => {
+      // When the timeout expires, we need to call our callback function
+      // and feed it whatever arguments we have, with the spread operator
       callback(...args);
     }, wait);
   };
