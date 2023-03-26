@@ -1,6 +1,40 @@
+import { createOgImage } from '@/lib/createOGImage';
+import Head from 'next/head';
+
 export default function About() {
+  const ogImage = createOgImage({
+    title: 'Vishwanath B. | About Me',
+    meta: ['frozenhearth.vercel.app'].join(' · '),
+  });
   return (
     <>
+      <Head>
+        <title>Vishwanath B. | About Me</title>
+        <meta name="description" content="Passionate front-end engineer" />
+
+        <meta
+          property="og:url"
+          content="https://frozenhearth.vercel.app/about"
+        />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="Vishwanath B. | About Me" />
+        <meta
+          property="og:description"
+          content="Passionate front-end engineer"
+        />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1600" />
+        <meta property="og:image:height" content="836" />
+        <meta property="og:image:alt" content="Vishwanath B." />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vishwanath B. | About Me" />
+        <meta
+          name="twitter:description"
+          content="Passionate front-end engineer"
+        />
+        <meta name="twitter:image" content={ogImage} />
+      </Head>
       <h1 className="py-4 md:p-0 text-fuchsia-300 sm:text-4xl text-3xl font-bold">
         About Me
       </h1>
