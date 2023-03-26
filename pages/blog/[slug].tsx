@@ -59,21 +59,24 @@ export default function PostPage({ meta, content }: PostPageProps) {
       <Head>
         <title>{meta.title}</title>
         <meta name="description" content={meta.summary} />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:image" content={ogImage} />
-        <meta property="og:image:width" content="1600" />
-        <meta property="og:image:height" content="836" />
-        <meta property="og:image:alt" content={meta.title} />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content={ogImage} />
-        <meta name="twitter:description" content={meta.metaDesc} />
-        <meta property="og:description" content={meta.metaDesc} />
+
         <meta
           property="og:url"
           content={`https://frozenhearth.vercel.app${router.asPath}`}
         />
         <meta property="og:type" content="article" />
+        <meta property="og:title" content={meta.title} />
+        <meta property="og:description" content={meta.metaDesc} />
+        <meta property="og:image" content={ogImage} />
+        <meta property="og:image:width" content="1600" />
+        <meta property="og:image:height" content="836" />
+        <meta property="og:image:alt" content={meta.title} />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:description" content={meta.metaDesc} />
+        <meta name="twitter:image" content={ogImage} />
+
         <meta property="article:published_time" content={meta.formattedDate} />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
