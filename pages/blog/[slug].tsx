@@ -1,4 +1,3 @@
-import Bio from '@/components/Bio';
 import markdownToHtml from '@/lib/markdown';
 import { getAllPosts, getPostBySlug } from '@/lib/post';
 import { createOgImage } from '@/lib/createOGImage';
@@ -67,7 +66,7 @@ export default function PostPage({ meta, content }: PostPageProps) {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.metaDesc} />
-        <meta property="og:image" content={ogImage} />
+        <meta property="og:image" content={`${ogImage}?46578`} />
         <meta property="og:image:width" content="1600" />
         <meta property="og:image:height" content="836" />
         <meta property="og:image:alt" content={meta.title} />
@@ -75,21 +74,26 @@ export default function PostPage({ meta, content }: PostPageProps) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.metaDesc} />
-        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image" content={`${ogImage}?46578`} />
 
         <meta property="article:published_time" content={meta.formattedDate} />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <div className="prose prose-invert mx-auto py-4 md:p-0">
-        <h1 className="mb-0">{meta.title}</h1>
-        <span className="text-neutral-500 mt-0 sm:mt-2 rounded text-sm inline-block">
-          {meta.date}
-        </span>
+      <div className="prose prose-invert text-base md:text-lg mx-auto py-4 md:p-0">
+        <header className="flex items-center mb-4">
+          <span className="block h-4 w-0.5 rounded-full bg-zinc-500"></span>
+          <span className="text-neutral-500 ml-3 rounded text-md inline-block">
+            {meta.date}
+          </span>
+        </header>
+        <h1 className="mb-0 text-zinc-100 text-3xl md:text-4xl font-bold tracking-tight">
+          {meta.title}
+        </h1>
+
         <article
-          className="m-auto mb-4 sm:mb-8 sm:-mt-8 min-[320px]:-mt-4"
+          className="m-auto mb-4 sm:mb-8"
           dangerouslySetInnerHTML={{ __html: content }}
         />
-        <Bio />
       </div>
     </>
   );

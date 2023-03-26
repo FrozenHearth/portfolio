@@ -2,10 +2,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-body {
-  background-color: #0e141b;
-}
-
 html {
   min-width: 360px;
 }
@@ -33,7 +29,7 @@ input[type='email'] {
 .prose :where(a):not(:where([class~='not-prose'] *)) {
   text-decoration: underline;
   font-weight: 500;
-  color: rgb(198 120 221);
+  color: rgb(56 189 248);
 }
 
 .prose :where(a):not(:where([class~='not-prose'] *)):hover {
@@ -86,4 +82,13 @@ pre {
   margin-left: -8px;
   color: rgb(156, 163, 175); /* Line number color */
   content: attr(line);
+}
+
+.mx-10vw {
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.prose {
+  color: rgb(148 163 184);
 }

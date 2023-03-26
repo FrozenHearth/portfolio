@@ -9,7 +9,7 @@ export default function Document() {
           href="https://unpkg.com/prism-themes@1.9.0/themes/prism-one-dark.css"
         />
       </Head>
-      <body>
+      <body className=" bg-zinc-900">
         <Main />
         <NextScript />
       </body>
