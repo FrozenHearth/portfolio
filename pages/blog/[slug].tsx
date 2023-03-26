@@ -52,7 +52,7 @@ export default function PostPage({ meta, content }: PostPageProps) {
   const router = useRouter();
   const ogImage = createOgImage({
     title: meta.title,
-    meta: ['frozenhearth.vercel.app', meta.formattedDate].join(' · '),
+    meta: ['frozenhearth-io.vercel.app', meta.formattedDate].join(' · '),
   });
   return (
     <>
@@ -65,13 +65,13 @@ export default function PostPage({ meta, content }: PostPageProps) {
         <meta property="og:description" content={meta.metaDesc} />
         <meta
           property="og:url"
-          content={`https://frozenhearth.vercel.app${router.asPath}`}
+          content={`https://frozenhearth-io.vercel.app${router.asPath}`}
         />
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={meta.formattedDate} />
         {/* <meta
           property="og:image"
-          content={`https://frozenhearth.vercel.app/api/og?username=FrozenHearth&title=${meta.title}`}
+          content={`https://frozenhearth-io.vercel.app/api/og?username=FrozenHearth&title=${meta.title}`}
         /> */}
         <meta property="og:image" content={ogImage} />
         <meta property="og:image:width" content="1600" />
