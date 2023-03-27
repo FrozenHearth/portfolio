@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import avatar from '../public/images/me.avif';
-import landingPage from '../public/images/undraw_programming.svg';
 
 export default function HomePage() {
   return (
