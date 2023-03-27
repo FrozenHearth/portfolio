@@ -56,7 +56,7 @@ export default function Blog({ posts }: BlogProps) {
           property="og:description"
           content="Welcome to my blog. I write mainly about frontend stuff."
         />
-        <meta property="og:image" content={`${ogImage}?46578`} />
+        <meta property="og:image" content={`${ogImage}?12345`} />
         <meta property="og:image:width" content="1600" />
         <meta property="og:image:height" content="836" />
         <meta property="og:image:alt" content="Vishwanath B." />
@@ -67,7 +67,7 @@ export default function Blog({ posts }: BlogProps) {
           name="twitter:description"
           content="Welcome to my blog. I write mainly about frontend stuff."
         />
-        <meta name="twitter:image" content={`${ogImage}?46578`} />
+        <meta name="twitter:image" content={`${ogImage}?12345`} />
       </Head>
       <div className="mt-4 md:mt-10">
         <div className="max-w-2xl">
