@@ -24,7 +24,7 @@ export default function About() {
           property="og:description"
           content="Passionate front-end engineer"
         />
-        <meta property="og:image" content={`${ogImage}?46578`} />
+        <meta property="og:image" content={`${ogImage}?88888`} />
         <meta property="og:image:width" content="1600" />
         <meta property="og:image:height" content="836" />
         <meta property="og:image:alt" content="Vishwanath B." />
@@ -35,7 +35,7 @@ export default function About() {
           name="twitter:description"
           content="Passionate front-end engineer"
         />
-        <meta name="twitter:image" content={`${ogImage}?46578`} />
+        <meta name="twitter:image" content={`${ogImage}?88888`} />
       </Head>
 
       <div className="max-w-2xl lg:max-w-full pt-6">

@@ -66,7 +66,7 @@ export default function PostPage({ meta, content }: PostPageProps) {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={meta.title} />
         <meta property="og:description" content={meta.metaDesc} />
-        <meta property="og:image" content={`${ogImage}?46578`} />
+        <meta property="og:image" content={`${ogImage}?99999`} />
         <meta property="og:image:width" content="1600" />
         <meta property="og:image:height" content="836" />
         <meta property="og:image:alt" content={meta.title} />
@@ -74,7 +74,7 @@ export default function PostPage({ meta, content }: PostPageProps) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.metaDesc} />
-        <meta name="twitter:image" content={`${ogImage}?46578`} />
+        <meta name="twitter:image" content={`${ogImage}?99999`} />
 
         <meta property="article:published_time" content={meta.formattedDate} />
       </Head>
