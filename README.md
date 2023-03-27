@@ -1,3 +1,27 @@
-My personal portfolio built using Next.js, Typescript, Tailwind and frontmatter/rehype for syntax highlighting.
+# Portfolio
 
-Feel free to clone my repo and experiment. But, please DO NOT copy all my styling.
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Styling**: [Tailwind](https://tailwindcss.com)
+- **Syntax Highlighting**: [Rehype](https://github.com/rehypejs/rehype)
+
+## TODO
+
+- [x] View on Github button
+- [ ] Navigate between prev and next blog
+- [ ] Add "My Work" section
+
+## Running Locally
+
+Requires Node.js v18+.
+
+```bash
+git clone https://github.com/frozenhearth/portfolio.git
+cd portfolio
+yarn 
+yarn dev
+```
+
+## Cloning
+
+Feel free to clone my repo/fork it and experiment. But, please DO NOT copy all my styling.
