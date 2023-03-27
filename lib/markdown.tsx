@@ -4,6 +4,7 @@ import remarkRehype from 'remark-rehype';
 import rehypePrism from 'rehype-prism-plus';
 import rehypeStringify from 'rehype-stringify';
 import rehypeExternalLinks from 'rehype-external-links';
+import rehypeCodeTitles from 'rehype-code-titles';
 
 export default async function markdownToHtml(
   markdown: string
@@ -11,6 +12,7 @@ export default async function markdownToHtml(
   const result = await unified()
     .use(remarkParse)
     .use(remarkRehype)
+    .use(rehypeCodeTitles)
     .use(rehypePrism)
     .use(rehypeExternalLinks, {
       target: '_blank',

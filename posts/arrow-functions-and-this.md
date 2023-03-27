@@ -3,7 +3,7 @@ title: 'Arrow functions and this keyword'
 metaTitle: 'Arrow functions and this keyword'
 metaDesc: 'How arrow functions solve an old this keyword hack.'
 summary: 'How this keyword behaves in arrow functions'
-date: 'Mar 17, 2023'
+date: 'March 17, 2023'
 formattedDate: 'Mar-17-2023'
 tags:
   - arrow functions, this, javascript
@@ -22,7 +22,7 @@ The first point is extremely important. Perhaps the most important rule of an ar
 
 Let's take an example of `setTimeout` in an object method:
 
-```js
+```javascript:arrowFuncAndThis.js
 const obj = {
   count: 10,
   doSomethingLater() {

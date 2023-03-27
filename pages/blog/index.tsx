@@ -69,14 +69,14 @@ export default function Blog({ posts }: BlogProps) {
         />
         <meta name="twitter:image" content={`${ogImage}?46578`} />
       </Head>
-      <div>
+      <div className="mt-4 md:mt-10">
         <div className="max-w-2xl">
           <h1 className="text-3xl md:text-5xl text-white font-semibold leading-tight md:mt-4">
             I write mainly about frontend engineering, and random experiences in
             my life.
           </h1>
-          <div className="mt-8">
-            <p className="text-slate-400 my-0">
+          <div className="mt-4 md:mt-8">
+            <p className="text-slate-400 text-lg my-0">
               My learnings about commonly asked concepts in Javascript
               interviews explained in the simplest way possible. Sometimes, I
               also write about day-to-day experiences.
@@ -92,20 +92,21 @@ export default function Blog({ posts }: BlogProps) {
               new Date(a.frontmatter.formattedDate).valueOf()
           )
           .map(({ slug, frontmatter }) => (
-            <div key={slug} className="my-8 overflow-hidden flex flex-col">
-              <Link
-                className="text-white font-bold text-xl hover:underline"
-                href={`/blog/${slug}`}
-              >
+            <Link
+              key={slug}
+              href={`/blog/${slug}`}
+              className="hover:bg-zinc-800/50 hover:cursor-pointer hover:rounded-lg p-4 md:p-8 my-4 overflow-hidden flex flex-col"
+            >
+              <div className="text-white font-bold text-xl">
                 {frontmatter.title}
-              </Link>
+              </div>
               <span className="text-slate-500 text-sm my-2">
                 {frontmatter.date}
               </span>
               <span className="text-sky-400 text-md">
                 {frontmatter.summary}
               </span>
-            </div>
+            </Link>
           ))}
       </div>
     </>
