@@ -82,7 +82,7 @@ export default function PostPage({ meta, content }: PostPageProps) {
       <div className="prose prose-invert text-base md:text-lg mx-auto py-4 md:p-0">
         <header className="flex items-center mb-4">
           <span className="block h-4 w-0.5 rounded-full bg-zinc-500"></span>
-          <span className="text-neutral-500 ml-3 rounded text-sm inline-block">
+          <span className="text-slate-500 ml-3 rounded text-sm inline-block">
             {meta.date}
           </span>
         </header>
@@ -94,6 +94,15 @@ export default function PostPage({ meta, content }: PostPageProps) {
           className="m-auto mb-4 sm:mb-8"
           dangerouslySetInnerHTML={{ __html: content }}
         />
+        <footer>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={`https://github.com/FrozenHearth/portfolio/blob/main/posts/${router.query.slug}.md`}
+          >
+            View on Github
+          </a>
+        </footer>
       </div>
     </>
   );

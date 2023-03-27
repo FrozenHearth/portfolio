@@ -1,4 +1,4 @@
-import Navbar from './Sidebar';
+import Navbar from './Navbar';
 
 type LayoutProps = {
   children: React.ReactNode;

@@ -22,7 +22,7 @@ The first point is extremely important. Perhaps the most important rule of an ar
 
 Let's take an example of `setTimeout` in an object method:
 
-```javascript:arrowFuncAndThis.js
+```js:arrowFuncAndThis.js
 const obj = {
   count: 10,
   doSomethingLater() {
@@ -44,7 +44,7 @@ You might have seen this code - `let self = this` OR `let that = this` in older 
 
 By assigning `this` to the variable `self/that` before the setTimeout call, we capture a reference to `obj`, allowing us to access its count property later on.
 
-```js {6,8}
+```js:arrowFuncAndThis.js {6,8}
 const obj = {
   count: 10,
   doSomethingLater() {
@@ -63,7 +63,7 @@ obj.doSomethingLater(); // logs "11"
 
 Or, we could use `bind` to make sure the function executes in the proper scope.
 
-```js {8}
+```js:arrowFuncAndThis.js {8}
 const obj = {
   count: 10,
   doSomethingLater() {
@@ -94,7 +94,7 @@ In short;
 
 Instead, with arrow functions, we can simplify our code, and just modify our syntax to:
 
-```js {4}
+```js:arrowFuncAndThis.js {4}
 const obj = {
   count: 10,
   doSomethingLater() {

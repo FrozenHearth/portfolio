@@ -40,7 +40,7 @@ export default function About() {
 
       <div className="max-w-2xl lg:max-w-full pt-6">
         <div className="grid grid-cols-1 gap-y-8 md:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="max-w-xs px-2.5 lg:pl-20 lg:max-w-none">
+          <div className="max-w-xs px-2.5 md:pl-20 md:max-w-none">
             <Image
               className='"aspect-square rotate-3 rounded-2xl object-cover bg-zinc-800'
               src={avatar}
@@ -54,26 +54,21 @@ export default function About() {
               {`Hi, I'm Vishwanath B. I live in Bengaluru, the Silicon Valley of India.`}
             </h1>
             <p className="text-slate-400 mt-8 text-lg">
-              I started out as a fullstack intern at Red Hat, although most of
-              my work was frontend. I learnt Angular, Typescript, Mocha,
-              Node.js, MongoDB and GraphQL on the job, successfully delivering a
-              webapp for the internal teams at Red Hat.
+              After completing my final year project in undergrad, I discovered
+              my passion for frontend engineering. Since then, I have been on a
+              continuous learning journey.
               <br />
               <br />
-              {`After my internship at Red Hat, I worked at a
-        couple of small startups, where I worked with Vue, Vuex, Nuxt, React, Redux, etc. Transitioning
-        from a big company to a small startup was an overwhelming change. It was a tremendous learning experience, as I
-        got to witness firsthand the inner workings of a bootstrapped startup. I built a few frontend webapps from scratch, ranging from a Trello-like platform for C-suite executives to Udemy-like learning platform for senior citizens.`}
+              With 3 and a half years of experience, I am obsessed with crafting
+              pixel-perfect UIs. I am proficient in HTML, CSS,
+              JavaScript/TypeScript, and have worked with Angular, React, and
+              Vue in my career. Additionally, I have dabbled with Node.js,
+              GraphQL, and MongoDB for a short period of time.
               <br />
               <br />
-              {`I then worked at Byju's for a year and 9 months on Byju's Classes, 
-              built with React, Redux, Bootstrap, Storybook and Agora. 
-              Perhaps the most fun, memorable and chaotic memory
-        was fixing a Webpack build error, which broke the background image for
-        one of the most important parts of our webapp. After hours of debugging
-        with the team, frantically searching on Stackoverflow and reading the
-        documentation, I figured out the fix, which saved tons of money for the
-        company, and prevented delays in our production launch.`}
+              Recently, I started learning Next.js and Tailwind and used them to
+              build this website. For syntax highlighting, I used graymatter,
+              remark, and rehype, along with a few other plugins
             </p>
           </div>
         </div>
@@ -86,7 +81,8 @@ export default function About() {
       </h1>
 
       <p className="text-slate-400 mt-4 block">
-        HTML, CSS/SASS, Javascript/Typescript, React, Redux, Vue, Vuex, Next.js.
+        HTML, CSS/SASS, Javascript/Typescript, React, Redux, Vue, Vuex, Next.js,
+        Tailwind.
       </p>
     </>
   );
