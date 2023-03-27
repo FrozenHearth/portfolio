@@ -77,7 +77,6 @@ export default function PostPage({ meta, content }: PostPageProps) {
         <meta name="twitter:image" content={`${ogImage}?46578`} />
 
         <meta property="article:published_time" content={meta.formattedDate} />
-        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div className="prose prose-invert text-base md:text-lg mx-auto py-4 md:p-0">
         <header className="flex items-center mb-4">
