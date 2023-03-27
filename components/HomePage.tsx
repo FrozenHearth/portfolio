@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import avatar from '../public/images/me.avif';
+import landingPage from '../public/images/undraw_programming.svg';
 
 export default function HomePage() {
   return (
@@ -9,13 +10,12 @@ export default function HomePage() {
           src={avatar}
           alt="Vishwanath B."
           className="rounded-full object-cover object-right-top"
-          style={{ height: 72 }}
-          width={72}
+          style={{ height: 72, width: 72 }}
         />
         <h1 className="text-3xl md:text-5xl text-white font-semibold leading-tight mt-4">
           Frontend engineer, hobbyist guitarist and a space lover.
         </h1>
-        <p className="md:leading-tight text-slate-400 mt-6 text-md md:text-xl">
+        <p className="md:leading-tight text-slate-400 mt-2 md:mt-6 text-lg md:text-xl">
           {`I'm Vishwanath, a passionate frontend engineer, with 3 and a half years of experience,
            currently looking for a Senior Frontend role at a 
            medium sized startup/company like Cred/Groww/Razorpay etc.`}

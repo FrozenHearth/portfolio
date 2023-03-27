@@ -48,17 +48,23 @@ export default function Navbar() {
     lg:border-slate-900/10 border-slate-50/[0.06] 
     supports-backdrop-blur:bg-white/95 
     bg-transparent 
-    md:flex-shrink-0 md:mx-0 pl-4 my-6 md:my-0 md:py-4 md:mt-16 sm:px-[10vw]"
+    md:flex-shrink-0 md:mx-0 my-6 md:my-0 md:py-4 md:mt-16 px-[2vw] md:px-[10vw]"
     >
       <nav
-        className="flex md:items-start relative px-4 md:px-0 pb-0 fade scroll-pr-6 md:relative items-center"
+        className="flex relative px-4 md:px-0 pb-0 fade scroll-pr-6 md:relative items-center"
         id="nav"
       >
         <Link
           href="/"
-          className="text-white font-bold md:font-semibold hover:underline hover:cursor-pointer text-xl sm:text-3xl"
+          className="text-white hidden sm:block font-bold md:font-semibold hover:underline hover:cursor-pointer text-xl sm:text-3xl"
         >
           Vishwanath B.
+        </Link>
+        <Link
+          href="/"
+          className="text-white block sm:hidden font-bold md:font-semibold hover:underline hover:cursor-pointer text-xl sm:text-3xl"
+        >
+          VB.
         </Link>
         <div className="flex flex-row md:gap-8 space-x-0 pr-0 mb-2 mt-2 md:mt-0 ml-auto">
           {navItems[pathname] ? (

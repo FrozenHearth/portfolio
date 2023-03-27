@@ -3,7 +3,7 @@ title: 'Understanding the debounce implementation'
 metaTitle: 'Understanding the debounce implementation'
 metaDesc: 'Diving deep into implementing debounce'
 summary: 'Diving deep into implementing debounce'
-date: 'Mar 26, 2023'
+date: 'March 26, 2023'
 formattedDate: 'Mar-26-2023'
 tags:
   - debounce, javascript
@@ -17,8 +17,8 @@ A `debounce` is a higher-order function, which is a function that returns anothe
 
 Let's take an example of how we'd use it in a React component:
 
-```jsx
-function TrendingRepo() {
+```jsx:TrendingReposList.js
+function TrendingReposList() {
   const [repos, setRepos] = React.useState([]);
   const debounceOnChange = React.useCallback(
     debounce(fetchTrendingRepos, 400),
@@ -49,7 +49,7 @@ By implementing debounce, we can optimize the performance of our API calls by de
 
 ## Here's a classic debounce implementation
 
-```js
+```js:debounce.js
 const debounce = (callback, wait) => {
   let timeoutId = null;
 

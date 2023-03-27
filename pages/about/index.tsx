@@ -38,7 +38,7 @@ export default function About() {
         <meta name="twitter:image" content={`${ogImage}?46578`} />
       </Head>
 
-      <div className="max-w-2xl lg:max-w-full">
+      <div className="max-w-2xl lg:max-w-full pt-6">
         <div className="grid grid-cols-1 gap-y-8 md:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="max-w-xs px-2.5 lg:pl-20 lg:max-w-none">
             <Image
@@ -47,14 +47,13 @@ export default function About() {
               alt="Vishwanath B."
               priority
               width={400}
-              height={300}
             />
           </div>
           <div className="lg:order-first lg:row-span-2">
             <h1 className="text-3xl md:text-5xl text-white font-semibold leading-tight md:mt-4">
               {`Hi, I'm Vishwanath B. I live in Bengaluru, the Silicon Valley of India.`}
             </h1>
-            <p className="text-slate-400 mt-8">
+            <p className="text-slate-400 mt-8 text-lg">
               I started out as a fullstack intern at Red Hat, although most of
               my work was frontend. I learnt Angular, Typescript, Mocha,
               Node.js, MongoDB and GraphQL on the job, successfully delivering a
