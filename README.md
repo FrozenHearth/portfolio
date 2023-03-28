@@ -1,4 +1,4 @@
-# Portfolio
+# My Portfolio
 
 - **Framework**: [Next.js](https://nextjs.org/)
 - **Deployment**: [Vercel](https://vercel.com)
