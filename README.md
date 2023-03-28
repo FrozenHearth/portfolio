@@ -8,6 +8,7 @@
 ## TODO
 
 - [x] View on Github button
+- [x] Use next-seo library for meta tags
 - [ ] Navigate between prev and next blog
 - [ ] Add "My Work" section
 
