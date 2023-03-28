@@ -54,7 +54,7 @@ export default function Blog({ posts }: BlogProps) {
           title: 'Vishwanath B. | Blog',
           description:
             'Welcome to my blog. I write mainly about frontend stuff.',
-          url: 'https://frozenhearth.vercel.app/blog',
+          url: `${process.env.NEXT_PUBLIC_URL}/blog`,
         }}
         twitter={twitterSEODefaults}
         title="Vishwanath B."

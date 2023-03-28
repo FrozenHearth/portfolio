@@ -10,7 +10,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <DefaultSeo
           openGraph={{
             type: 'website',
-            url: 'https://frozenhearth.vercel.app/',
+            url: process.env.NEXT_PUBLIC_URL,
             siteName: 'Vishwanath B.',
           }}
           twitter={{

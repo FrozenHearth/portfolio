@@ -22,7 +22,7 @@ export default function Home() {
           ],
           title: 'Vishwanath B.',
           description: 'Welcome to my personal website',
-          url: 'https://frozenhearth.vercel.app',
+          url: process.env.NEXT_PUBLIC_URL,
         }}
         twitter={{
           handle: '@frozeninretro',
