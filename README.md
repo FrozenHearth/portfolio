@@ -5,9 +5,9 @@
 - **Styling**: [Tailwind](https://tailwindcss.com)
 - **Syntax Highlighting**: [Rehype](https://github.com/rehypejs/rehype)
 
-## TODO
+## Things to add:
 
-- [x] View on Github button
+- [x] "View on Github" button
 - [x] Use next-seo library for meta tags
 - [ ] Navigate between prev and next blog
 - [ ] View counter in blog list & blog details page.
