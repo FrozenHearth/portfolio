@@ -1,6 +1,7 @@
 import HomePage from '@/components/HomePage';
 import { createOgImage } from '@/lib/createOGImage';
-import Head from 'next/head';
+import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+import { NextSeo } from 'next-seo';
 
 export default function Home() {
   const ogImage = createOgImage({
@@ -9,30 +10,27 @@ export default function Home() {
   });
   return (
     <>
-      <Head>
-        <title>Vishwanath B.</title>
-        <meta name="description" content="Welcome to my personal website." />
-
-        <meta property="og:url" content="https://frozenhearth.vercel.app" />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Vishwanath B." />
-        <meta
-          property="og:description"
-          content="Welcome to my personal website."
-        />
-        <meta property="og:image" content={`${ogImage}?46578`} />
-        <meta property="og:image:width" content="1600" />
-        <meta property="og:image:height" content="836" />
-        <meta property="og:image:alt" content="Vishwanath B." />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vishwanath B." />
-        <meta
-          name="twitter:description"
-          content="Welcome to my personal website."
-        />
-        <meta name="twitter:image" content={`${ogImage}?46578`} />
-      </Head>
+      <NextSeo
+        openGraph={{
+          images: [
+            {
+              url: `${ogImage}?${randomFiveDigitNumber()}`,
+              width: 1600,
+              height: 836,
+              alt: 'Vishwanath B.',
+            },
+          ],
+          title: 'Vishwanath B.',
+          description: 'Welcome to my personal website',
+          url: 'https://frozenhearth.vercel.app',
+        }}
+        twitter={{
+          handle: '@frozeninretro',
+          cardType: 'summary_large_image',
+        }}
+        title="Vishwanath B."
+        description="Welcome to my personal website"
+      />
       <div className="py-4 md:p-0">
         <HomePage />
       </div>

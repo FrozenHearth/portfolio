@@ -1,18 +1,23 @@
 import Layout from '@/components/layout';
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
-      </Head>
       <Layout>
+        <DefaultSeo
+          openGraph={{
+            type: 'website',
+            url: 'https://frozenhearth.vercel.app/',
+            siteName: 'Vishwanath B.',
+          }}
+          twitter={{
+            handle: '@frozeninretro',
+            cardType: 'summary_large_image',
+          }}
+        />
         <Component {...pageProps} />
       </Layout>
     </>
