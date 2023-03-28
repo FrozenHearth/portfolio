@@ -3,7 +3,7 @@ import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
 import { twitterSEODefaults } from '@/utils/seoDefaults';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import avatar from '../../public/images/me.avif';
+import avatar from '@/public/images/me.avif';
 
 export default function About() {
   const ogImage = createOgImage({
