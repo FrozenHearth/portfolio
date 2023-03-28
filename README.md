@@ -10,6 +10,7 @@
 - [x] View on Github button
 - [x] Use next-seo library for meta tags
 - [ ] Navigate between prev and next blog
+- [ ] View counter in blog list & blog details page.
 - [ ] Add "My Work" section
 
 ## Running Locally
