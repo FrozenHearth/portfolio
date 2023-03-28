@@ -69,7 +69,7 @@ export default function PostPage({ meta, content }: PostPageProps) {
           ],
           title: meta.title,
           description: meta.summary,
-          url: `https://frozenhearth.vercel.app${router.asPath}`,
+          url: `${process.env.NEXT_PUBLIC_URL}${router.asPath}`,
           type: 'article',
         }}
         twitter={twitterSEODefaults}

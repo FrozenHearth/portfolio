@@ -24,7 +24,7 @@ export default function About() {
           ],
           title: 'Vishwanath B. | About Me',
           description: 'Passionate front-end engineer',
-          url: 'https://frozenhearth.vercel.app/about',
+          url: `${process.env.NEXT_PUBLIC_URL}/about`,
         }}
         twitter={twitterSEODefaults}
         title="Vishwanath B. | About Me"
