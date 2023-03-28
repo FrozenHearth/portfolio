@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import avatar from '../public/images/me.avif';
+import avatar from '@/public/images/me.avif';
 
 export default function HomePage() {
   return (
