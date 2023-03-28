@@ -3,8 +3,10 @@ import path from 'path';
 import matter from 'gray-matter';
 import { BlogPostType } from '@/lib/types';
 import { createOgImage } from '@/lib/createOGImage';
-import Head from 'next/head';
 import BlogList from '@/components/BlogList';
+import { NextSeo } from 'next-seo';
+import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+import { twitterSEODefaults } from '@/utils/seoDefaults';
 
 export async function getStaticProps() {
   const fileNames = fs.readdirSync(path.join(process.cwd(), 'posts'));
@@ -35,40 +37,29 @@ type BlogProps = {
 export default function Blog({ posts }: BlogProps) {
   const ogImage = createOgImage({
     title: 'Vishwanath B. | Blog',
-    meta: ['frozenhearth.vercel.app'].join(' · '),
+    meta: ['frozenhearth.vercel.app/blog'].join(' · '),
   });
   return (
     <>
-      <Head>
-        <title>Vishwanath B. | Blog</title>
-        <meta
-          name="description"
-          content="Welcome to my blog. I write mainly about frontend stuff."
-        />
-
-        <meta
-          property="og:url"
-          content="https://frozenhearth.vercel.app/blog"
-        />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Vishwanath B." />
-        <meta
-          property="og:description"
-          content="Welcome to my blog. I write mainly about frontend stuff."
-        />
-        <meta property="og:image" content={`${ogImage}?12345`} />
-        <meta property="og:image:width" content="1600" />
-        <meta property="og:image:height" content="836" />
-        <meta property="og:image:alt" content="Vishwanath B." />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vishwanath B. | Blog" />
-        <meta
-          name="twitter:description"
-          content="Welcome to my blog. I write mainly about frontend stuff."
-        />
-        <meta name="twitter:image" content={`${ogImage}?12345`} />
-      </Head>
+      <NextSeo
+        openGraph={{
+          images: [
+            {
+              url: `${ogImage}?${randomFiveDigitNumber()}`,
+              width: 1600,
+              height: 836,
+              alt: 'Vishwanath B.',
+            },
+          ],
+          title: 'Vishwanath B. | Blog',
+          description:
+            'Welcome to my blog. I write mainly about frontend stuff.',
+          url: 'https://frozenhearth.vercel.app/blog',
+        }}
+        twitter={twitterSEODefaults}
+        title="Vishwanath B."
+        description="Welcome to my blog. I write mainly about frontend stuff."
+      />
       <div className="mt-4 md:mt-10">
         <div className="max-w-2xl">
           <h1 className="text-3xl md:text-5xl text-white font-semibold leading-tight md:mt-4">

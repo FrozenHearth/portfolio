@@ -1,5 +1,7 @@
 import { createOgImage } from '@/lib/createOGImage';
-import Head from 'next/head';
+import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+import { twitterSEODefaults } from '@/utils/seoDefaults';
+import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import avatar from '../../public/images/me.avif';
 
@@ -10,34 +12,24 @@ export default function About() {
   });
   return (
     <>
-      <Head>
-        <title>Vishwanath B. | About Me</title>
-        <meta name="description" content="Passionate front-end engineer" />
-
-        <meta
-          property="og:url"
-          content="https://frozenhearth.vercel.app/about"
-        />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="Vishwanath B. | About Me" />
-        <meta
-          property="og:description"
-          content="Passionate front-end engineer"
-        />
-        <meta property="og:image" content={`${ogImage}?88888`} />
-        <meta property="og:image:width" content="1600" />
-        <meta property="og:image:height" content="836" />
-        <meta property="og:image:alt" content="Vishwanath B." />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Vishwanath B. | About Me" />
-        <meta
-          name="twitter:description"
-          content="Passionate front-end engineer"
-        />
-        <meta name="twitter:image" content={`${ogImage}?88888`} />
-      </Head>
-
+      <NextSeo
+        openGraph={{
+          images: [
+            {
+              url: `${ogImage}?${randomFiveDigitNumber()}`,
+              width: 1600,
+              height: 836,
+              alt: 'Vishwanath B.',
+            },
+          ],
+          title: 'Vishwanath B. | About Me',
+          description: 'Passionate front-end engineer',
+          url: 'https://frozenhearth.vercel.app/about',
+        }}
+        twitter={twitterSEODefaults}
+        title="Vishwanath B. | About Me"
+        description="Passionate front-end engineer"
+      />
       <div className="max-w-2xl lg:max-w-full pt-6">
         <div className="grid grid-cols-1 gap-y-8 md:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
           <div className="max-w-xs px-2.5 md:pl-20 md:max-w-none">

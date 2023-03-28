@@ -3,7 +3,6 @@
 import clsx from 'clsx';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import BrandLogo from './BrandLogo';
 
 type NavItems = {
@@ -70,27 +69,6 @@ export default function Navbar() {
           <BrandLogo height="36" width="36" />
         </Link>
         <div className="flex flex-row md:gap-8 space-x-0 pr-0 mb-2 mt-2 md:mt-0 ml-auto">
-          {navItems[pathname] ? (
-            <>
-              <div className="block">
-                <motion.div
-                  className="absolute z-[-1] "
-                  initial={{ opacity: 0, x: navItems[pathname].x }}
-                  animate={{
-                    opacity: 1,
-                    x: navItems[pathname].x,
-                    width: navItems[pathname].w,
-                  }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 350,
-                    damping: 30,
-                  }}
-                />
-              </div>
-            </>
-          ) : null}
-
           {Object.entries(navItems).map(([path, { name }]) => {
             const isActive = path === pathname;
 

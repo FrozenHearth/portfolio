@@ -1,8 +1,10 @@
 import markdownToHtml from '@/lib/markdown';
 import { getAllPosts, getPostBySlug } from '@/lib/post';
 import { createOgImage } from '@/lib/createOGImage';
-import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+import { twitterSEODefaults } from '@/utils/seoDefaults';
 
 export async function getStaticPaths() {
   const posts = getAllPosts();
@@ -55,29 +57,25 @@ export default function PostPage({ meta, content }: PostPageProps) {
   });
   return (
     <>
-      <Head>
-        <title>{meta.title}</title>
-        <meta name="description" content={meta.summary} />
-
-        <meta
-          property="og:url"
-          content={`https://frozenhearth.vercel.app${router.asPath}`}
-        />
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content={meta.title} />
-        <meta property="og:description" content={meta.metaDesc} />
-        <meta property="og:image" content={`${ogImage}?99999`} />
-        <meta property="og:image:width" content="1600" />
-        <meta property="og:image:height" content="836" />
-        <meta property="og:image:alt" content={meta.title} />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.metaDesc} />
-        <meta name="twitter:image" content={`${ogImage}?99999`} />
-
-        <meta property="article:published_time" content={meta.formattedDate} />
-      </Head>
+      <NextSeo
+        openGraph={{
+          images: [
+            {
+              url: `${ogImage}?${randomFiveDigitNumber()}`,
+              width: 1600,
+              height: 836,
+              alt: meta.title,
+            },
+          ],
+          title: meta.title,
+          description: meta.summary,
+          url: `https://frozenhearth.vercel.app${router.asPath}`,
+          type: 'article',
+        }}
+        twitter={twitterSEODefaults}
+        title={meta.title}
+        description={meta.summary}
+      />
       <div className="prose prose-invert text-base md:text-lg mx-auto py-4 md:p-0">
         <header className="flex items-center mb-4">
           <span className="block h-4 w-0.5 rounded-full bg-zinc-500"></span>
