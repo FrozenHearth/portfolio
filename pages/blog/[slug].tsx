@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
 import { twitterSEODefaults } from '@/utils/seoDefaults';
+import ViewCounter from '@/components/ViewCounter';
 
 export async function getStaticPaths() {
   const posts = getAllPosts();
@@ -28,6 +29,12 @@ export async function getStaticProps({
 }) {
   const post = getPostBySlug(slug);
   const content = await markdownToHtml(post.content || '');
+
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
@@ -82,6 +89,8 @@ export default function PostPage({ meta, content }: PostPageProps) {
           <span className="text-slate-500 ml-3 rounded text-sm inline-block">
             {meta.date}
           </span>
+          <span className="mx-3">·</span>
+          <ViewCounter trackView slug={router.query.slug} />
         </header>
         <h1 className="mb-0 text-zinc-100 text-3xl md:text-4xl font-bold tracking-tight">
           {meta.title}
