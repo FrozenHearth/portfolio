@@ -1,5 +1,6 @@
 import { BlogPostType } from '@/lib/types';
 import Link from 'next/link';
+import ViewCounter from './ViewCounter';
 
 type BlogProps = {
   posts: BlogPostType[];
@@ -25,6 +26,8 @@ export default function BlogList({ posts }: BlogProps) {
             </div>
             <span className="text-slate-500 text-sm my-2">
               {frontmatter.date}
+              <span className="mx-3">·</span>
+              <ViewCounter trackView={false} slug={slug} />
             </span>
             <span className="text-white text-md">{frontmatter.summary}</span>
           </Link>
