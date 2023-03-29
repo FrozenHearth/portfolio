@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import useSWR from 'swr';
+import { LoadingDots } from './LoadingDots';
 
 async function fetcher<JSON = any>(
   input: RequestInfo,
@@ -22,7 +23,10 @@ export default function ViewCounter({
   slug: string | string[] | undefined;
   trackView: boolean;
 }) {
-  const { data } = useSWR<ViewCountData>(`/api/views/${slug}`, fetcher);
+  const { data, isLoading } = useSWR<ViewCountData>(
+    `/api/views/${slug}`,
+    fetcher
+  );
   const views = (data && new Number(data.total)) || 0;
 
   useEffect(() => {
@@ -36,6 +40,13 @@ export default function ViewCounter({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
+
+  if (isLoading)
+    return (
+      <>
+        <LoadingDots />
+      </>
+    );
 
   return (
     <span className="text-sm text-slate-500">
