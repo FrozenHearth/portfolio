@@ -1,0 +1,65 @@
+div[data-rehype-pretty-code-fragment] {
+  overflow: hidden;
+  background-color: rgb(0, 0, 0 / 0.5);
+  border-radius: 0.375rem;
+}
+
+div[data-rehype-pretty-code-fragment] pre {
+  overflow-x: auto;
+  line-height: 1.5rem;
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+div[data-rehype-pretty-code-title] {
+  background-color: #1e2739;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    Liberation Mono, Courier New, monospace;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  font-size: 1rem;
+  color: #fff;
+  padding: 0.5em 1em;
+}
+
+div[data-rehype-pretty-code-fragment] .line {
+  border-left-width: 4px;
+  border-left-color: transparent;
+  min-height: 24px;
+}
+
+div[data-rehype-pretty-code-fragment] .line--highlighted {
+  border-left: 4px solid rgb(56 189 248);
+  background-color: rgba(55, 65, 81, 0.5);
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+div[data-rehype-pretty-code-fragment] .line--highlighted > :first-child {
+  margin-left: 20px;
+}
+
+div[data-rehype-pretty-code-fragment] code {
+  display: grid;
+  background-color: transparent;
+  border-width: 0;
+  border-radius: 0;
+  padding: 0;
+}
+
+code[data-line-numbers] {
+  counter-reset: lineNumber;
+}
+
+code[data-line-numbers] .line::before {
+  counter-increment: lineNumber;
+  content: counter(lineNumber);
+  display: inline-block;
+  text-align: right;
+  margin-right: 0.75rem;
+  width: 1rem;
+  color: rgb(255 255 255 / 0.2);
+}

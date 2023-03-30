@@ -3,11 +3,10 @@ title: 'Understanding the debounce implementation'
 metaTitle: 'Understanding the debounce implementation'
 metaDesc: 'Diving deep into implementing debounce'
 summary: 'Diving deep into implementing debounce'
-date: 'March 26, 2023'
-formattedDate: 'Mar-26-2023'
-tags:
-  - debounce, javascript
+publishedAt: '2023-03-26'
 ---
+
+<CustomAvatar />
 
 Being asked to implement `debounce` in an interview is a very common scenario. Normally, in our day-to-day job, we use lodash's debounce package. But understanding how it works under the hood is a whole other ballgame.
 
@@ -17,7 +16,7 @@ A `debounce` is a higher-order function, which is a function that returns anothe
 
 Let's take an example of how we'd use it in a React component:
 
-```jsx:TrendingReposList.js
+```jsx title="TrendingReposList.js"
 function TrendingReposList() {
   const [repos, setRepos] = React.useState([]);
   const debounceOnChange = React.useCallback(
@@ -49,7 +48,7 @@ By implementing debounce, we can optimize the performance of our API calls by de
 
 ## Here's a classic debounce implementation
 
-```js:debounce.js
+```js title="debounce.js"
 const debounce = (callback, wait) => {
   let timeoutId = null;
 
@@ -68,7 +67,7 @@ Whoa, this looks very confusing, doesn't it? The simplest way to understand code
 As per our understanding:
 
 1. We want to wait a certain amount before we call our callback function. We want to wait till the user finishes typing.
-2. Our debounce should _return a function_. Why? This is done to form a closure around the `callback` and `wait` function parameters and the `timeoutId` variable so that their values are preserved.
+2. Our debounce should _return a function_. Why? This is done to form a closure around `callback` and `wait` function parameters and the `timeoutId` variable so that their values are preserved.
 
 So we need to do a few things:
 

@@ -1,34 +1,29 @@
-import markdownToHtml from '@/lib/markdown';
-import { getAllPosts, getPostBySlug } from '@/lib/post';
 import { createOgImage } from '@/lib/createOGImage';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
 import { twitterSEODefaults } from '@/utils/seoDefaults';
 import ViewCounter from '@/components/ViewCounter';
+import { allPosts, type Post } from 'contentlayer/generated';
+import { type GetStaticProps, type InferGetStaticPropsType } from 'next';
+import { useMDXComponent } from 'next-contentlayer/hooks';
+import { components } from '@/components/MDXComponents';
 
 export async function getStaticPaths() {
-  const posts = getAllPosts();
-
   return {
-    paths: posts.map((post) => {
-      return {
-        params: {
-          slug: post.slug,
-        },
-      };
-    }),
-    fallback: 'blocking',
+    paths: allPosts.map((post) => ({
+      params: {
+        slug: post.slug,
+      },
+    })),
+    fallback: false,
   };
 }
 
-export async function getStaticProps({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) {
-  const post = getPostBySlug(slug);
-  const content = await markdownToHtml(post.content || '');
+export const getStaticProps: GetStaticProps<{
+  post: Post;
+}> = ({ params }) => {
+  const post = allPosts.find((post) => post.slug === params?.slug);
 
   if (!post) {
     return {
@@ -38,29 +33,19 @@ export async function getStaticProps({
 
   return {
     props: {
-      ...post,
-      content,
+      post,
     },
   };
-}
+};
 
-interface PostPageProps {
-  meta: {
-    title: string;
-    date: string;
-    summary: string;
-    metaDesc: string;
-    formattedDate: string;
-    tags: string[];
-  };
-  content: string;
-}
-
-export default function PostPage({ meta, content }: PostPageProps) {
+export default function PostPage({
+  post,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const MDXContent = useMDXComponent(post.body.code);
   const router = useRouter();
   const ogImage = createOgImage({
-    title: meta.title,
-    meta: ['frozenhearth.vercel.app', meta.formattedDate].join(' · '),
+    title: post.title,
+    meta: ['frozenhearth.vercel.app', post.publishedAtFormatted].join(' · '),
   });
   return (
     <>
@@ -71,39 +56,38 @@ export default function PostPage({ meta, content }: PostPageProps) {
               url: `${ogImage}?${randomFiveDigitNumber()}`,
               width: 1600,
               height: 836,
-              alt: meta.title,
+              alt: post.title,
             },
           ],
-          title: meta.title,
-          description: meta.summary,
+          title: post.title,
+          description: post.summary,
           url: `${process.env.NEXT_PUBLIC_URL}${router.asPath}`,
           type: 'article',
         }}
         twitter={twitterSEODefaults}
-        title={meta.title}
-        description={meta.summary}
+        title={post.title}
+        description={post.summary}
       />
       <div className="prose prose-invert md:text-lg mx-auto py-4 md:p-0">
         <header className="flex items-center mb-4">
           <span className="text-slate-400 rounded text-sm inline-block">
-            {meta.date}
+            {post.publishedAtFormatted}
           </span>
           <span className="mx-3">·</span>
-          <ViewCounter trackView slug={router.query.slug} />
+          <ViewCounter trackView slug={post.slug} />
         </header>
         <h1 className="mb-0 text-zinc-100 text-3xl md:text-4xl font-bold tracking-tight">
-          {meta.title}
+          {post.title}
         </h1>
+        <article className="m-auto mb-4 sm:mb-8">
+          <MDXContent components={{ ...components }} />
+        </article>
 
-        <article
-          className="m-auto mb-4 sm:mb-8"
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
         <footer>
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href={`https://github.com/FrozenHearth/portfolio/blob/main/posts/${router.query.slug}.md`}
+            href={`https://github.com/FrozenHearth/portfolio/blob/main/posts/${post.slug}.mdx`}
           >
             View on Github
           </a>
