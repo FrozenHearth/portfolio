@@ -8,7 +8,7 @@
 ## Things to add:
 
 - [x] "View on Github" button
-= [x] Convert md files to mdx and switch to contentlayer
+- [x] Convert md files to mdx and switch to contentlayer
 - [x] Use next-seo library for meta tags
 - [x] View counter in blog list & blog details page.
 - [ ] Navigate between prev and next blog.
