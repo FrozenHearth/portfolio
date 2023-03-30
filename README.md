@@ -8,9 +8,10 @@
 ## Things to add:
 
 - [x] "View on Github" button
+= [x] Convert md files to mdx and switch to contentlayer
 - [x] Use next-seo library for meta tags
-- [ ] Navigate between prev and next blog
 - [x] View counter in blog list & blog details page.
+- [ ] Navigate between prev and next blog.
 - [ ] Add "My Work" section
 
 ## Running Locally
