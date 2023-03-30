@@ -83,10 +83,9 @@ export default function PostPage({ meta, content }: PostPageProps) {
         title={meta.title}
         description={meta.summary}
       />
-      <div className="prose prose-invert text-base md:text-lg mx-auto py-4 md:p-0">
+      <div className="prose prose-invert md:text-lg mx-auto py-4 md:p-0">
         <header className="flex items-center mb-4">
-          <span className="block h-4 w-0.5 rounded-full bg-zinc-500"></span>
-          <span className="text-slate-500 ml-3 rounded text-sm inline-block">
+          <span className="text-slate-400 rounded text-sm inline-block">
             {meta.date}
           </span>
           <span className="mx-3">·</span>

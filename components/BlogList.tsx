@@ -19,12 +19,12 @@ export default function BlogList({ posts }: BlogProps) {
           <Link
             key={slug}
             href={`/blog/${slug}`}
-            className="hover:bg-gray-800/50 hover:cursor-pointer hover:rounded-lg p-4 md:p-8 my-4 overflow-hidden flex flex-col"
+            className="hover:bg-gray-800/60 hover:cursor-pointer hover:rounded-lg p-4 md:p-8 my-4 overflow-hidden flex flex-col"
           >
             <div className="text-sky-400 font-bold text-xl">
               {frontmatter.title}
             </div>
-            <span className="text-slate-500 text-sm my-2">
+            <span className="text-slate-400 text-sm my-2">
               {frontmatter.date}
               <span className="mx-3">·</span>
               <ViewCounter trackView={false} slug={slug} />

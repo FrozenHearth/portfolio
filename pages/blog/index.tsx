@@ -61,30 +61,25 @@ export default function Blog({ posts }: BlogProps) {
         description="Welcome to my blog. I write mainly about frontend stuff."
       />
       <div className="mt-4 md:mt-10">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl md:text-5xl text-white font-semibold leading-tight md:mt-4">
-            I write mainly about frontend engineering.
-          </h1>
-          <div className="mt-4 md:mt-8">
-            <p className="text-slate-400 text-lg my-0">
-              It is a platform for me to share my knowledge and experiences
-              related to my career and technical interests. For more
-              information, check out my{' '}
-              <a
-                href="https://linkedin.com/in/vishwanath-bhetanabhotla"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sky-400 hover:underline"
-              >
-                Linkedin.
-              </a>
-            </p>
-          </div>
-        </div>
+        <h1 className="text-4xl md:text-7xl text-white font-semibold leading-tight md:mt-4">
+          I write mainly about frontend engineering.
+        </h1>
+        <h2 className="text-slate-400 max-w-2xl text-lg md:text-xl my-0 mt-4 md:mt-8">
+          It is a platform for me to share my knowledge and experiences related
+          to my career and technical interests. For more information, check out
+          my{' '}
+          <a
+            href="https://linkedin.com/in/vishwanath-bhetanabhotla"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sky-400 hover:underline"
+          >
+            Linkedin.
+          </a>
+        </h2>
         <hr className="h-px mt-8 mb-4 border-0 bg-gray-700"></hr>
-
-        <BlogList posts={posts} />
       </div>
+      <BlogList posts={posts} />
     </>
   );
 }
