@@ -1,40 +1,21 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { BlogPostType } from '@/lib/types';
 import { createOgImage } from '@/lib/createOGImage';
-import BlogList from '@/components/BlogList';
 import { NextSeo } from 'next-seo';
 import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
 import { twitterSEODefaults } from '@/utils/seoDefaults';
+import { allPosts, type Post } from 'contentlayer/generated';
+import { type GetStaticProps, type InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
+import ViewCounter from '@/components/ViewCounter';
 
-export async function getStaticProps() {
-  const fileNames = fs.readdirSync(path.join(process.cwd(), 'posts'));
-  const posts = fileNames.map((fileName) => {
-    const slug = fileName.replace('.md', '');
-    const mdWithMeta = fs.readFileSync(
-      path.join(process.cwd(), 'posts', fileName),
-      'utf-8'
-    );
-    const { data: frontmatter } = matter(mdWithMeta);
-    return {
-      slug,
-      frontmatter,
-    };
-  });
-
-  return {
-    props: {
-      posts,
-    },
-  };
-}
-
-type BlogProps = {
-  posts: BlogPostType[];
+export const getStaticProps: GetStaticProps<{
+  posts: Post[];
+}> = () => {
+  return { props: { posts: allPosts } };
 };
 
-export default function Blog({ posts }: BlogProps) {
+export default function BlogListPage({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const ogImage = createOgImage({
     title: 'Vishwanath B. | Blog',
     meta: ['frozenhearth.vercel.app/blog'].join(' · '),
@@ -79,7 +60,28 @@ export default function Blog({ posts }: BlogProps) {
         </h2>
         <hr className="h-px mt-8 mb-4 border-0 bg-gray-700"></hr>
       </div>
-      <BlogList posts={posts} />
+      {posts
+        .sort(
+          (a, b) =>
+            new Date(b.publishedAtFormatted).valueOf() -
+            new Date(a.publishedAtFormatted).valueOf()
+        )
+        .map((post) => (
+          <div key={post.slug}>
+            <Link
+              href={`/blog/${post.slug}`}
+              className="hover:bg-gray-800/60 hover:cursor-pointer hover:rounded-lg p-4 md:p-8 my-4 overflow-hidden flex flex-col"
+            >
+              <div className="text-sky-400 font-bold text-xl">{post.title}</div>
+              <span className="text-slate-400 text-sm my-2">
+                {post.publishedAtFormatted}
+                <span className="mx-3">·</span>
+                <ViewCounter trackView={false} slug={post.slug} />
+              </span>
+              <span className="text-white text-md">{post.summary}</span>
+            </Link>
+          </div>
+        ))}
     </>
   );
 }

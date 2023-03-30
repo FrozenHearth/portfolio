@@ -3,11 +3,10 @@ title: 'Arrow functions and this keyword'
 metaTitle: 'Arrow functions and this keyword'
 metaDesc: 'How arrow functions solve an old this keyword hack.'
 summary: 'How this keyword behaves in arrow functions'
-date: 'March 17, 2023'
-formattedDate: 'Mar-17-2023'
-tags:
-  - arrow functions, this, javascript
+publishedAt: '2023-03-17'
 ---
+
+<CustomAvatar />
 
 Arrow functions are a syntactical sugar to regular functions.
 You can shorten your syntax and make things look pretty.
@@ -22,7 +21,7 @@ The first point is extremely important. Perhaps the most important rule of an ar
 
 Let's take an example of `setTimeout` in an object method:
 
-```js:arrowFuncAndThis.js
+```js title="arrowFuncAndThis.js"
 const obj = {
   count: 10,
   doSomethingLater() {
@@ -44,7 +43,7 @@ You might have seen this code - `let self = this` OR `let that = this` in older 
 
 By assigning `this` to the variable `self/that` before the setTimeout call, we capture a reference to `obj`, allowing us to access its count property later on.
 
-```js:arrowFuncAndThis.js {6,8}
+```js title="arrowFuncAndThis.js" {6,8}
 const obj = {
   count: 10,
   doSomethingLater() {
@@ -63,7 +62,7 @@ obj.doSomethingLater(); // logs "11"
 
 Or, we could use `bind` to make sure the function executes in the proper scope.
 
-```js:arrowFuncAndThis.js {8}
+```js title="arrowFuncAndThis.js" {8}
 const obj = {
   count: 10,
   doSomethingLater() {
@@ -94,7 +93,7 @@ In short;
 
 Instead, with arrow functions, we can simplify our code, and just modify our syntax to:
 
-```js:arrowFuncAndThis.js {4}
+```js title="arrowFuncAndThis.js" {4}
 const obj = {
   count: 10,
   doSomethingLater() {
