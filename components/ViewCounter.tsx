@@ -49,7 +49,7 @@ export default function ViewCounter({
     );
 
   return (
-    <span className="text-sm text-slate-500">
+    <span className="text-sm text-slate-400">
       {data ? `${views.toLocaleString()} views` : '​'}
     </span>
   );
