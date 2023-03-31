@@ -1,46 +1,10 @@
-import { createOgImage } from '@/lib/createOGImage';
-import { NextSeo } from 'next-seo';
-import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
-import { twitterSEODefaults } from '@/utils/seoDefaults';
-import { allPosts, type Post } from 'contentlayer/generated';
-import { type GetStaticProps, type InferGetStaticPropsType } from 'next';
+import { allPosts } from 'contentlayer/generated';
 import Link from 'next/link';
 import ViewCounter from '@/components/ViewCounter';
 
-export const getStaticProps: GetStaticProps<{
-  posts: Post[];
-}> = () => {
-  return { props: { posts: allPosts } };
-};
-
-export default function BlogListPage({
-  posts,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  const ogImage = createOgImage({
-    title: 'Vishwanath B. | Blog',
-    meta: ['frozenhearth.vercel.app/blog'].join(' · '),
-  });
+export default function BlogListPage() {
   return (
     <>
-      <NextSeo
-        openGraph={{
-          images: [
-            {
-              url: `${ogImage}?${randomFiveDigitNumber()}`,
-              width: 1600,
-              height: 836,
-              alt: 'Vishwanath B.',
-            },
-          ],
-          title: 'Vishwanath B. | Blog',
-          description:
-            'Welcome to my blog. I write mainly about frontend stuff.',
-          url: `${process.env.NEXT_PUBLIC_URL}/blog`,
-        }}
-        twitter={twitterSEODefaults}
-        title="Vishwanath B."
-        description="Welcome to my blog. I write mainly about frontend stuff."
-      />
       <div className="mt-4 md:mt-10">
         <h1 className="text-4xl md:text-7xl text-white font-semibold leading-tight md:mt-4">
           I write mainly about frontend engineering.
@@ -60,7 +24,7 @@ export default function BlogListPage({
         </h2>
         <hr className="h-px mt-8 mb-4 border-0 bg-gray-700"></hr>
       </div>
-      {posts
+      {allPosts
         .sort(
           (a, b) =>
             new Date(b.publishedAtFormatted).valueOf() -
