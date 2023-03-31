@@ -3,6 +3,7 @@ import rehypeExternalLinks from 'rehype-external-links';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { formatDate } from './lib/formatDate';
 import { rehypePrettyCodeOptions } from './lib/rehypePrettyCode';
+import { visit } from 'unist-util-visit';
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -46,7 +47,33 @@ export default makeSource({
   documentTypes: [Post],
   mdx: {
     rehypePlugins: [
+      () => (tree) => {
+        visit(tree, (node) => {
+          if (node?.type === 'element' && node?.tagName === 'pre') {
+            const [codeEl] = node.children;
+
+            if (codeEl.tagName !== 'code') return;
+
+            node.raw = codeEl.children?.[0].value;
+          }
+        });
+      },
       [rehypePrettyCode, rehypePrettyCodeOptions],
+      () => (tree) => {
+        visit(tree, (node) => {
+          if (node?.type === 'element' && node?.tagName === 'div') {
+            if (!('data-rehype-pretty-code-fragment' in node.properties)) {
+              return;
+            }
+
+            for (const child of node.children) {
+              if (child.tagName === 'pre') {
+                child.properties['raw'] = node.raw;
+              }
+            }
+          }
+        });
+      },
       [
         rehypeExternalLinks,
         {
