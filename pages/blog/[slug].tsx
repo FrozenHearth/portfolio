@@ -7,7 +7,7 @@ import ViewCounter from '@/components/ViewCounter';
 import { allPosts, type Post } from 'contentlayer/generated';
 import { type GetStaticProps, type InferGetStaticPropsType } from 'next';
 import { useMDXComponent } from 'next-contentlayer/hooks';
-import { components } from '@/components/MDXComponents';
+import MarkdownContent from '@/components/MDXComponents';
 
 export async function getStaticPaths() {
   return {
@@ -80,7 +80,7 @@ export default function PostPage({
           {post.title}
         </h1>
         <article className="m-auto mb-4 sm:mb-8">
-          <MDXContent components={{ ...components }} />
+          <MarkdownContent code={post.body.code} />
         </article>
 
         <footer>

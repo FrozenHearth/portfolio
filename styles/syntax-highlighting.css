@@ -42,14 +42,6 @@ div[data-rehype-pretty-code-fragment] .line--highlighted > :first-child {
   margin-left: 20px;
 }
 
-div[data-rehype-pretty-code-fragment] code {
-  display: grid;
-  background-color: transparent;
-  border-width: 0;
-  border-radius: 0;
-  padding: 0;
-}
-
 code[data-line-numbers] {
   counter-reset: lineNumber;
 }
@@ -62,4 +54,22 @@ code[data-line-numbers] .line::before {
   margin-right: 0.75rem;
   width: 1rem;
   color: rgb(255 255 255 / 0.2);
+}
+
+div[data-rehype-pretty-code-fragment] code {
+  display: grid;
+  background-color: transparent;
+  border-width: 0;
+  border-radius: 0;
+  padding: 2rem 0;
+}
+
+@media screen and (min-width: 640px) {
+  div[data-rehype-pretty-code-fragment] code {
+    display: grid;
+    background-color: transparent;
+    border-width: 0;
+    border-radius: 0;
+    padding: 1rem 0;
+  }
 }
