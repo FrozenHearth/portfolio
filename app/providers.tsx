@@ -5,7 +5,11 @@ import React from 'react';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
+    <ThemeProvider
+      disableTransitionOnChange
+      enableSystem={true}
+      attribute="class"
+    >
       {children}
     </ThemeProvider>
   );
