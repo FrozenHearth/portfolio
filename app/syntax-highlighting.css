@@ -25,6 +25,12 @@ div[data-rehype-pretty-code-title] {
   padding: 0.5em 1em;
 }
 
+@media (prefers-color-scheme: dark) {
+  div[data-rehype-pretty-code-title] {
+    background-color: rgba(30, 39, 57, 0.9);
+  }
+}
+
 div[data-rehype-pretty-code-fragment] .line {
   border-left-width: 4px;
   border-left-color: transparent;
@@ -34,7 +40,7 @@ div[data-rehype-pretty-code-fragment] .line {
 div[data-rehype-pretty-code-fragment] .line--highlighted {
   border-left: 4px solid rgb(56 189 248);
   background-color: rgba(55, 65, 81, 0.5);
-  margin-left: -20px;
+  margin-left: -18.5px;
   margin-right: -20px;
 }
 

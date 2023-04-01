@@ -12,7 +12,7 @@ export default function CustomAvatar() {
         priority
       />
       <div className="text-sm">
-        <h6 className="text-slate-200">Vishwanath</h6>
+        <h6 className="text-slate-600 dark:text-slate-200">Vishwanath</h6>
         <a
           className="text-sky-500 no-underline"
           rel="noopener noreferrer"
