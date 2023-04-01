@@ -16,10 +16,10 @@ export default function About() {
             />
           </div>
           <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-3xl md:text-5xl text-white font-semibold leading-tight md:mt-4">
+            <h1 className="text-3xl md:text-5xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
               {`Hi, I'm Vishwanath B. I live in Bengaluru, the Silicon Valley of India.`}
             </h1>
-            <p className="text-slate-400 mt-8 text-lg">
+            <p className=" text-slate-600 dark:text-slate-400 mt-8 text-lg">
               After completing my final year project in undergrad, I discovered
               my passion for frontend engineering. Since then, I have been on a
               continuous learning journey.
@@ -42,11 +42,11 @@ export default function About() {
 
       <hr className="h-px my-8 border-0 bg-gray-700"></hr>
 
-      <h1 className="text-3xl md:text-4xl text-white font-semibold leading-tight md:mt-4">
+      <h1 className="text-3xl md:text-4xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
         Stuff I know:
       </h1>
 
-      <p className="text-slate-400 mt-4 block">
+      <p className="text-slate-600 dark:text-slate-400 mt-4 block">
         HTML, CSS/SASS, Javascript/Typescript, React, Redux, Vue, Vuex, Next.js,
         Tailwind.
       </p>

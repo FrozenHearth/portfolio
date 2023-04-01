@@ -16,7 +16,7 @@ input[type='email'] {
 }
 
 .prose :where(code):not(:where([class~='not-prose'] *)) {
-  background: rgba(115, 125, 140, 0.35);
+  background: rgba(115, 125, 140, 0.15);
   border-radius: 3px;
   padding: 4.5px 4.5px;
   margin: 1px 1.5px;
@@ -25,7 +25,6 @@ input[type='email'] {
 .prose :where(a):not(:where([class~='not-prose'] *)) {
   text-decoration: underline;
   font-weight: 500;
-  color: rgb(56 189 248);
 }
 
 .prose :where(a):not(:where([class~='not-prose'] *)):hover {
@@ -35,12 +34,4 @@ input[type='email'] {
 .prose :where(code):not(:where([class~='not-prose'] *))::before,
 .prose :where(code):not(:where([class~='not-prose'] *))::after {
   content: '';
-}
-
-.prose {
-  color: #94a3b8;
-}
-
-.no-underline {
-  text-decoration: none !important;
 }

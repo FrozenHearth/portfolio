@@ -23,15 +23,15 @@ export default function PostPage({ params }: Params) {
   }
   return (
     <>
-      <div className="prose prose-invert md:text-lg mx-auto py-4 md:p-0">
+      <div className="prose prose-slate dark:prose-invert prose-a:text-sky-500 dark:prose-p:text-slate-400 md:text-lg mx-auto py-4 md:p-0">
         <header className="flex items-center mb-4">
-          <span className="text-slate-400 rounded text-sm inline-block">
+          <span className="text-slate-600 dark:text-slate-400 rounded text-sm inline-block">
             {post.publishedAtFormatted}
           </span>
           <span className="mx-3">·</span>
           <ViewCounter trackView slug={post.slug} />
         </header>
-        <h1 className="mb-0 text-zinc-100 text-3xl md:text-4xl font-bold tracking-tight">
+        <h1 className="mb-0 dark:text-zinc-100 text-3xl md:text-4xl font-bold tracking-tight">
           {post.title}
         </h1>
         <article className="m-auto mb-4 sm:mb-8">

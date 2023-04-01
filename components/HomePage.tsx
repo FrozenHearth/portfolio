@@ -2,17 +2,17 @@ export default function HomePage() {
   return (
     <>
       <header className="mt-0 pt-2 md:pt-6 md:flex md:flex-col md:items-center">
-        <h1 className="text-4xl md:text-7xl text-white md:text-center font-semibold leading-tight mt-4">
+        <h1 className="text-4xl md:text-7xl text-slate-900 dark:text-white md:text-center font-bold leading-tight mt-4">
           Frontend engineer, hobbyist guitarist and a space lover.
         </h1>
-        <h2 className="md:max-w-2xl text-slate-400 mt-4 md:mt-6 text-lg md:text-xl">
+        <h2 className="md:max-w-2xl text-slate-600 dark:text-slate-400 mt-4 md:mt-6 text-lg md:text-xl">
           {`I'm Vishwanath - a passionate frontend engineer, with 3 and a half years of experience,
            currently looking for a Senior Frontend role at a 
            medium sized startup/company like Cred/Groww/Razorpay etc.`}
         </h2>
         <div className="block mt-8 md:mt-0 md:flex gap-3">
           <a
-            className="font-bold text-black bg-white mt-4 md:mt-10 px-11 md:w-max w-full py-3 rounded-md 
+            className="font-bold text-white dark:text-black bg-black dark:bg-white mt-4 md:mt-10 px-11 md:w-max w-full py-3 rounded-md 
 flex items-center justify-center gap-3"
             href="https://drive.google.com/file/d/14JtqlU2Jy4WHBZ79RCWNfR-IzFtHhNEs/view?usp=sharing"
             rel="noopener noreferrer"
@@ -31,8 +31,9 @@ flex items-center justify-center gap-3"
           </a>
 
           <a
-            className="font-bold text-white border-gray-600 border-2 hover:border-zinc-900 mt-4 md:mt-10 px-11 md:w-max w-full py-3 rounded-md 
-          flex items-center justify-center bg-transparent gap-3"
+            className="font-bold text-black dark:text-white border-gray-600 
+            border hover:border-zinc-900 mt-4 md:mt-10 px-11 md:w-max w-full py-3 
+            rounded-md flex items-center justify-center bg-transparent gap-3"
             href="https://github.com/FrozenHearth"
             rel="noopener noreferrer"
             target="_blank"
