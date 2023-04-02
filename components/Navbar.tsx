@@ -93,7 +93,7 @@ export default function Navbar() {
         >
           <BrandLogo height="36" width="36" />
         </Link>
-        <div className="flex items-center md:gap-8 space-x-0 pr-0 mb-2 mt-2 md:mt-0 ml-auto">
+        <div className="flex items-center md:gap-8 pr-0 mb-2 mt-2 md:mt-0 ml-auto">
           {Object.entries(navItems).map(([path, { name }]) => {
             const isActive = path === pathname;
 

@@ -23,7 +23,7 @@ export default function PostPage({ params }: Params) {
   }
   return (
     <>
-      <div className="prose prose-slate dark:prose-invert prose-a:text-sky-500 dark:prose-p:text-slate-400 md:text-lg mx-auto py-4 md:p-0">
+      <div className="prose prose-slate dark:prose-invert prose-a:text-sky-500 dark:prose-p:text-slate-400 md:text-lg sm:mx-auto py-4 md:p-0">
         <header className="flex items-center mb-4">
           <span className="text-slate-600 dark:text-slate-400 rounded text-sm inline-block">
             {post.publishedAtFormatted}
