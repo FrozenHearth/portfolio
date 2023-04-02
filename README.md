@@ -14,6 +14,7 @@
 - [x] View counter in blog list & blog details page.
 - [x] Add Copy to Code button
 - [x] Migrate to app directory
+- [x] Add light mode & light/dark mode toggle
 - [ ] Navigate between prev and next blog.
 - [ ] Add "My Work" section
 
