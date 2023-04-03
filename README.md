@@ -15,6 +15,7 @@
 - [x] Add Copy to Code button
 - [x] Migrate to app directory
 - [x] Add light mode & light/dark mode toggle
+- [ ] Fix minor UI bugs 
 - [ ] Navigate between prev and next blog.
 - [ ] Add "My Work" section
 
