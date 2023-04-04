@@ -6,7 +6,7 @@ export default function About() {
     <>
       <div className="max-w-2xl lg:max-w-full pt-6">
         <div className="grid grid-cols-1 gap-y-8 md:gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
-          <div className="max-w-xs px-2.5 md:pl-20 md:max-w-none">
+          <div className="max-w-xs px-2.5 md:pl-20 md:max-w-none md:ml-auto">
             <Image
               className='"aspect-square rotate-3 rounded-2xl object-cover bg-zinc-800'
               src={avatar}
@@ -33,8 +33,8 @@ export default function About() {
               <br />
               <br />
               Recently, I started learning Next.js and Tailwind and used them to
-              build this website. For syntax highlighting, I used graymatter,
-              remark, and rehype, along with a few other plugins
+              build this website. For syntax highlighting, I used rehype, along
+              with a few other plugins.
             </p>
           </div>
         </div>

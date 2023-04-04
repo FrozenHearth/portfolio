@@ -66,7 +66,7 @@ export default function Navbar() {
         transition-colors duration-500 lg:z-50
         lg:border-slate-900/10 dark:border-slate-50/[0.06]      
       md:flex-shrink-0 md:mx-0 my-6 md:my-0 md:py-4 md:mt-16 px-[2vw] 
-      sm:px-0 md:px-[10vw]`,
+      sm:px-0 md:px-[10vw] 2xl:px-[20vw]`,
         {
           'lg:border-b bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75':
             isSticky,
@@ -82,7 +82,7 @@ export default function Navbar() {
         <Link
           href="/"
           className="dark:text-white text-slate-800 hidden items-center md:flex gap-3 font-bold 
-          md:font-bold hover:underline hover:cursor-pointer text-xl md:text-3xl"
+          md:font-bold hover:text-sky-500 hover:cursor-pointer text-xl md:text-3xl"
         >
           <BrandLogo height="48" width="48" />
           Vishwanath B.
@@ -102,10 +102,10 @@ export default function Navbar() {
                 key={path}
                 href={path}
                 className={clsx(
-                  'transition-all text-sm md:text-lg dark:hover:text-neutral-200 hover:text-gray-600 md:hover:underline py-[5px] px-[10px]',
+                  'transition-all text-sm md:text-lg dark:hover:text-neutral-200 hover:text-sky-500  py-[5px] px-[10px]',
                   {
                     'dark:text-slate-300 text-slate-800': !isActive,
-                    'font-bold dark:text-white text-slate-800': isActive,
+                    'font-bold dark:text-white text-sky-500': isActive,
                   }
                 )}
               >
