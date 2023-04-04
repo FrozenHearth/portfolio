@@ -32,7 +32,7 @@ flex items-center justify-center gap-3"
 
           <a
             className="font-bold text-black dark:text-white border-gray-600 
-            border hover:border-zinc-900 mt-4 md:mt-10 px-11 md:w-max w-full py-3 
+            border dark:hover:border-zinc-900 hover:border-white hover:bg-gradient-to-r from-sky-500 to-indigo-400 hover:text-white mt-4 md:mt-10 px-11 md:w-max w-full py-3 
             rounded-md flex items-center justify-center bg-transparent gap-3"
             href="https://github.com/FrozenHearth"
             rel="noopener noreferrer"
