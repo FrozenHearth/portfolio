@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import useSWR from 'swr';
-import { LoadingDots } from './LoadingDots';
+import LoadingDots from './LoadingDots';
 
 async function fetcher<JSON = any>(
   input: RequestInfo,
