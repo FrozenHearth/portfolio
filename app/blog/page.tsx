@@ -1,6 +1,37 @@
 import { allPosts } from 'contentlayer/generated';
 import Link from 'next/link';
 import ViewCounter from '@/components/ViewCounter';
+import Image from 'next/image';
+import { createOgImage } from '@/lib/createOGImage';
+import type { Metadata } from 'next';
+import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+
+const ogImage = createOgImage({
+  title: 'Vishwanath B. | Blog',
+  meta: ['frozenhearth.vercel.app/blog'].join(' · '),
+});
+export const metadata: Metadata = {
+  title: 'Vishwanath B. | Blog',
+  description: 'Welcome to my blog. I write mainly about frontend stuff.',
+  openGraph: {
+    images: [
+      {
+        url: `${ogImage}?${randomFiveDigitNumber()}`,
+        width: 1600,
+        height: 836,
+        alt: 'Vishwanath B.',
+      },
+    ],
+    title: 'Vishwanath B. | Blog',
+    description: 'Welcome to my blog. I write mainly about frontend stuff.',
+    url: `${process.env.NEXT_PUBLIC_URL}/blog`,
+  },
+  twitter: {
+    title: 'Vishwanath B. | Blog',
+    description: 'Welcome to my blog. I write mainly about frontend stuff.',
+    card: 'summary_large_image',
+  },
+};
 
 export default function BlogListPage() {
   return (
@@ -22,34 +53,43 @@ export default function BlogListPage() {
             Linkedin.
           </a>
         </h2>
-        <hr className="h-px mt-8 mb-4 border-0 bg-gray-700"></hr>
       </div>
-      {allPosts
-        .sort(
-          (a, b) =>
-            new Date(b.publishedAtFormatted).valueOf() -
-            new Date(a.publishedAtFormatted).valueOf()
-        )
-        .map((post) => (
-          <div key={post.slug}>
+      <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 gap-y-6 mt-8">
+        {allPosts
+          .sort(
+            (a, b) =>
+              new Date(b.publishedAtFormatted).valueOf() -
+              new Date(a.publishedAtFormatted).valueOf()
+          )
+          .map((post) => (
             <Link
+              key={post.slug}
               href={`/blog/${post.slug}`}
-              className="hover:bg-zinc-100 dark:hover:bg-gray-800/60 hover:cursor-pointer hover:rounded-lg p-4 md:p-8 my-4 overflow-hidden flex flex-col"
+              className="hover:cursor-pointer hover:rounded-lg my-4 overflow-hidden flex flex-col"
             >
-              <div className="text-slate-900 dark:text-sky-400 font-bold text-xl">
-                {post.title}
+              <div className="rounded-lg border-transparent border-2 hover:border-sky-500 p-1 overflow-hidden">
+                <Image
+                  src={post.imageSrc as string}
+                  alt="debounce"
+                  width={373}
+                  height={600}
+                  style={{ width: '100%' }}
+                  className="rounded-lg"
+                />
               </div>
-              <span className="text-slate-600 dark:text-slate-400 text-sm my-2">
-                {post.publishedAtFormatted}
-                <span className="mx-3">·</span>
-                <ViewCounter trackView={false} slug={post.slug} />
-              </span>
-              <span className="text-slate-500 dark:text-white text-md">
-                {post.summary}
-              </span>
+              <div className="mt-3 sm:mt-6 p-1">
+                <span className="text-slate-400 font-semibold dark:text-slate-400 text-lg sm:text-xl my-2">
+                  {post.publishedAtFormatted}
+                  <span className="mx-3"> — </span>
+                  <ViewCounter trackView={false} slug={post.slug} />
+                </span>
+                <header className="text-slate-900 dark:text-white font-semibold leading-tight text-2xl sm:text-3xl mt-4">
+                  {post.title}
+                </header>
+              </div>
             </Link>
-          </div>
-        ))}
+          ))}
+      </div>
     </>
   );
 }

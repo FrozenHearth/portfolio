@@ -105,7 +105,7 @@ export default function Navbar() {
                   'transition-all text-sm md:text-lg dark:hover:text-neutral-200 hover:text-sky-500  py-[5px] px-[10px]',
                   {
                     'dark:text-slate-300 text-slate-800': !isActive,
-                    'font-bold dark:text-white text-sky-500': isActive,
+                    'font-semibold dark:text-white text-sky-500': isActive,
                   }
                 )}
               >
