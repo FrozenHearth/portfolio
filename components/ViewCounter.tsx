@@ -3,6 +3,8 @@
 import { useEffect } from 'react';
 import useSWR from 'swr';
 import LoadingDots from './LoadingDots';
+import { useParams } from 'next/navigation';
+import clsx from 'clsx';
 
 async function fetcher<JSON = any>(
   input: RequestInfo,
@@ -28,6 +30,7 @@ export default function ViewCounter({
     fetcher
   );
   const views = (data && new Number(data.total)) || 0;
+  const params = useParams();
 
   useEffect(() => {
     const registerView = () =>
@@ -49,7 +52,13 @@ export default function ViewCounter({
     );
 
   return (
-    <span className="text-sm text-slate-600 dark:text-slate-400">
+    <span
+      className={clsx({
+        'text-lg sm:text-xl font-semibold': !params?.slug,
+        'text-base text-slate-600 font-normal dark:text-slate-400':
+          params?.slug,
+      })}
+    >
       {data ? `${views.toLocaleString()} views` : '​'}
     </span>
   );

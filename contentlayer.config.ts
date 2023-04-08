@@ -39,6 +39,9 @@ export const Post = defineDocumentType(() => ({
       type: 'string',
       required: true,
     },
+    imageSrc: {
+      type: 'string',
+    },
   },
 }));
 

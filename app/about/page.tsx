@@ -1,5 +1,36 @@
 import Image from 'next/image';
 import avatar from '@/public/images/me.avif';
+import { createOgImage } from '@/lib/createOGImage';
+import type { Metadata } from 'next';
+import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+
+const ogImage = createOgImage({
+  title: 'Vishwanath B. | About Me',
+  meta: ['frozenhearth.vercel.app/about'].join(' · '),
+});
+
+export const metadata: Metadata = {
+  title: 'Vishwanath B. | About Me',
+  description: 'Passionate front-end engineer',
+  openGraph: {
+    images: [
+      {
+        url: `${ogImage}?${randomFiveDigitNumber()}`,
+        width: 1600,
+        height: 836,
+        alt: 'Vishwanath B.',
+      },
+    ],
+    title: 'Vishwanath B. | About Me',
+    description: 'Passionate front-end engineer',
+    url: `${process.env.NEXT_PUBLIC_URL}/about`,
+  },
+  twitter: {
+    title: 'Vishwanath B.',
+    card: 'summary_large_image',
+    description: 'Passionate front-end engineer',
+  },
+};
 
 export default function About() {
   return (
@@ -19,7 +50,7 @@ export default function About() {
             <h1 className="text-3xl md:text-5xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
               {`Hi, I'm Vishwanath B. I live in Bengaluru, the Silicon Valley of India.`}
             </h1>
-            <p className=" text-slate-600 dark:text-slate-400 mt-8 text-lg">
+            <p className=" text-slate-600 dark:text-slate-400 mt-8 text-lg md:text-xl">
               After completing my final year project in undergrad, I discovered
               my passion for frontend engineering. Since then, I have been on a
               continuous learning journey.
@@ -46,7 +77,7 @@ export default function About() {
         Stuff I know:
       </h1>
 
-      <p className="text-slate-600 dark:text-slate-400 mt-4 block">
+      <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mt-4 block">
         HTML, CSS/SASS, Javascript/Typescript, React, Redux, Vue, Vuex, Next.js,
         Tailwind.
       </p>

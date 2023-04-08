@@ -3,7 +3,7 @@ import avatar from '@/public/images/me.avif';
 
 export default function CustomAvatar() {
   return (
-    <div className="flex items-center gap-3 font-medium -my-5">
+    <div className="flex items-center gap-3 font-medium -my-8">
       <Image
         src={avatar}
         style={{ width: 36, height: 36 }}
