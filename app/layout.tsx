@@ -1,7 +1,5 @@
 import Navbar from '@/components/Navbar';
-import { NextSeo } from 'next-seo';
 import './global.css';
-import { twitterSEODefaults } from '@/utils/seoDefaults';
 import { Providers } from './providers';
 
 export default function RootLayout({
@@ -11,11 +9,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-      </head>
-      <NextSeo useAppDir={true} twitter={twitterSEODefaults} />
       <body className="dark:bg-gradient-to-r dark:from-gray-900 dark:to-slate-800 bg-white antialiased min-h-screen flex flex-col">
         <Providers>
           <Navbar />
