@@ -5,7 +5,7 @@ import type { Metadata } from 'next';
 
 const ogImage = createOgImage({
   title: 'Vishwanath B.',
-  meta: ['frozenhearth.vercel.app'].join(' · '),
+  meta: ['Passionate frontend engineer'].join(''),
 });
 
 export const metadata: Metadata = {
