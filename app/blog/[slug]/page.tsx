@@ -12,7 +12,7 @@ type Params = {
 
 const ogImage = createOgImage({
   title: 'Vishwanath B. | Blog',
-  meta: ['frozenhearth.vercel.app/blog'].join(' · '),
+  meta: ['Passionate frontend engineer'].join(''),
 });
 
 export async function generateMetadata({

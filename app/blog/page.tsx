@@ -8,7 +8,7 @@ import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
 
 const ogImage = createOgImage({
   title: 'Vishwanath B. | Blog',
-  meta: ['frozenhearth.vercel.app/blog'].join(' · '),
+  meta: ['Passionate frontend engineer'].join(''),
 });
 export const metadata: Metadata = {
   title: 'Vishwanath B. | Blog',
