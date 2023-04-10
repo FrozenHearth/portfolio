@@ -4,7 +4,7 @@ import ViewCounter from '@/components/ViewCounter';
 import Image from 'next/image';
 import { createOgImage } from '@/lib/createOGImage';
 import type { Metadata } from 'next';
-import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 
 const ogImage = createOgImage({
   title: 'Vishwanath B. | Blog',
@@ -65,9 +65,9 @@ export default function BlogListPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="hover:cursor-pointer hover:rounded-lg my-4 overflow-hidden flex flex-col"
+              className="hover:cursor-pointer group hover:rounded-lg my-4 overflow-hidden flex flex-col"
             >
-              <div className="rounded-lg border-transparent border-2 hover:border-sky-500 p-1 overflow-hidden">
+              <div className="rounded-lg border-transparent border-2 group-hover:border-sky-500 p-1 overflow-hidden">
                 <Image
                   src={post.imageSrc as string}
                   alt="debounce"

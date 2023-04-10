@@ -2,7 +2,7 @@ import Image from 'next/image';
 import avatar from '@/public/images/me.avif';
 import { createOgImage } from '@/lib/createOGImage';
 import type { Metadata } from 'next';
-import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 
 const ogImage = createOgImage({
   title: 'Vishwanath B. | About Me',
