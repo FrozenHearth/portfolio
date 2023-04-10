@@ -1,6 +1,6 @@
 import HomePage from '@/components/HomePage';
 import { createOgImage } from '@/lib/createOGImage';
-import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 import type { Metadata } from 'next';
 
 const ogImage = createOgImage({

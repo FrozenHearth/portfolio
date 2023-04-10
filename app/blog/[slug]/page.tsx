@@ -3,7 +3,7 @@ import { allPosts } from 'contentlayer/generated';
 import MarkdownContent from '@/components/MDXComponents';
 import { notFound } from 'next/navigation';
 import { createOgImage } from '@/lib/createOGImage';
-import randomFiveDigitNumber from '@/utils/generateFiveDigitNumber';
+import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 import type { Metadata } from 'next';
 
 type Params = {
