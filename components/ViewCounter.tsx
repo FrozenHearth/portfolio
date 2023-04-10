@@ -6,7 +6,7 @@ import LoadingDots from './LoadingDots';
 import { useParams } from 'next/navigation';
 import clsx from 'clsx';
 
-async function fetcher<JSON = any>(
+async function fetcher<JSON>(
   input: RequestInfo,
   init?: RequestInit
 ): Promise<JSON> {
@@ -14,52 +14,53 @@ async function fetcher<JSON = any>(
   return res.json();
 }
 
+type ViewCounterProps = {
+  slug?: string | string[];
+  trackView?: boolean;
+};
+
 type ViewCountData = {
   total: number;
 };
 
 export default function ViewCounter({
   slug,
-  trackView,
-}: {
-  slug: string | string[] | undefined;
-  trackView: boolean;
-}) {
+  trackView = true,
+}: ViewCounterProps) {
   const { data, isLoading } = useSWR<ViewCountData>(
-    `/api/views/${slug}`,
+    slug ? `/api/views/${slug}` : null,
     fetcher
   );
-  const views = (data && new Number(data.total)) || 0;
-  const params = useParams();
+  const { slug: paramsSlug } = useParams() || {};
+  const views = data?.total || 0;
 
   useEffect(() => {
-    const registerView = () =>
+    const hasViewedPage = localStorage.getItem('hasViewedPage');
+
+    if (!hasViewedPage && trackView && slug) {
       fetch(`/api/views/${slug}`, {
         method: 'POST',
       });
-
-    if (trackView) {
-      registerView();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [slug]);
+  }, [slug, trackView]);
 
-  if (isLoading)
-    return (
-      <>
-        <LoadingDots />
-      </>
-    );
+  useEffect(() => {
+    if (paramsSlug && !localStorage.getItem('hasViewedPage')) {
+      localStorage.setItem(
+        'hasViewedPage',
+        JSON.stringify({ isVisited: true })
+      );
+    }
+  }, [paramsSlug]);
 
-  return (
-    <span
-      className={clsx({
-        'text-lg sm:text-xl font-semibold': !params?.slug,
-        'text-base text-slate-600 font-normal dark:text-slate-400':
-          params?.slug,
-      })}
-    >
-      {data ? `${views.toLocaleString()} views` : '​'}
-    </span>
-  );
+  if (isLoading) {
+    return <LoadingDots />;
+  }
+
+  const textStyle = clsx({
+    'text-lg sm:text-xl font-semibold': !paramsSlug,
+    'text-base text-slate-600 font-normal dark:text-slate-400': paramsSlug,
+  });
+
+  return <span className={textStyle}>{views.toLocaleString()} views</span>;
 }
