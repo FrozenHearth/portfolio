@@ -35,23 +35,12 @@ export default function ViewCounter({
   const views = data?.total || 0;
 
   useEffect(() => {
-    const hasViewedPage = localStorage.getItem('hasViewedPage');
-
-    if (!hasViewedPage && trackView && slug) {
+    if (trackView && slug) {
       fetch(`/api/views/${slug}`, {
         method: 'POST',
       });
     }
   }, [slug, trackView]);
-
-  useEffect(() => {
-    if (paramsSlug && !localStorage.getItem('hasViewedPage')) {
-      localStorage.setItem(
-        'hasViewedPage',
-        JSON.stringify({ isVisited: true })
-      );
-    }
-  }, [paramsSlug]);
 
   if (isLoading) {
     return <LoadingDots />;
