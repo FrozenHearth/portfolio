@@ -1,3 +1,5 @@
+//TODO: Switch to Next OG Image generation if possible
+
 export const createOgImage = ({
   title,
   meta,
