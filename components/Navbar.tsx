@@ -39,9 +39,6 @@ const navItems: NavItems = {
 
 export default function Navbar() {
   let pathname = usePathname() || '/';
-  if (pathname.includes('/blog/')) {
-    pathname = '/blog';
-  }
 
   const [isSticky, setIsSticky] = useState(false);
   const navbarRef = useRef<HTMLElement>(null);
