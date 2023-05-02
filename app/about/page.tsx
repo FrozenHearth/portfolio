@@ -73,9 +73,9 @@ export default function About() {
 
       <hr className="h-px my-8 border-0 bg-gray-700"></hr>
 
-      <h1 className="text-3xl md:text-4xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
+      <h2 className="text-3xl md:text-4xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
         Stuff I know:
-      </h1>
+      </h2>
 
       <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mt-4 block">
         HTML, CSS/SASS, Javascript/Typescript, React, Redux, Vue, Vuex, Next.js,
