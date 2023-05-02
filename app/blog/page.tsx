@@ -1,6 +1,6 @@
 import { allPosts } from 'contentlayer/generated';
 import Link from 'next/link';
-import ViewCounter from '@/components/ViewCounter';
+import ViewCounter from '@/components/common/ViewCounter';
 import Image from 'next/image';
 import { createOgImage } from '@/lib/createOGImage';
 import type { Metadata } from 'next';

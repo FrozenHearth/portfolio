@@ -1,6 +1,6 @@
-import ViewCounter from '@/components/ViewCounter';
+import ViewCounter from '@/components/common/ViewCounter';
 import { allPosts } from 'contentlayer/generated';
-import MarkdownContent from '@/components/MDXComponents';
+import MarkdownContent from '@/components/common/MDXComponents';
 import { notFound } from 'next/navigation';
 import { createOgImage } from '@/lib/createOGImage';
 import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';

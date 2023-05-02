@@ -64,8 +64,8 @@ export default function About() {
               <br />
               <br />
               Recently, I started learning Next.js and Tailwind and used them to
-              build this website. For syntax highlighting, I used rehype, along
-              with a few other plugins.
+              build this website. For syntax highlighting, I used rehype +
+              contentlayer for type-safe document schema.
             </p>
           </div>
         </div>
