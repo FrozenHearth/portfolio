@@ -1,4 +1,4 @@
-import { GithubButton, ResumeButton } from './Buttons';
+import { GithubButton, ResumeButton } from './common/Buttons';
 
 export default function HomePage() {
   return (
