@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { createOgImage } from '@/lib/createOGImage';
 import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 import type { Metadata } from 'next';
+import Sidebar from '@/components/Sidebar';
 
 type Params = {
   slug: string;
@@ -59,8 +60,9 @@ export default function PostPage({ params }: { params: Params }) {
     notFound();
   }
   return (
-    <>
-      <div className="prose prose-slate dark:prose-invert prose-a:text-sky-500 dark:prose-p:text-slate-400 md:text-lg sm:mx-auto py-4 md:p-0">
+    <div className="lg:grid lg:grid-cols-12">
+      <Sidebar />
+      <div className="md:col-span-7 prose prose-slate dark:prose-invert prose-a:text-sky-500 dark:prose-p:text-slate-400 md:text-lg sm:mx-auto py-4 md:p-0">
         <header className="mb-4">
           <h1 className="mb-0 dark:text-zinc-100 text-3xl md:text-4xl font-semibold tracking-tight">
             {post.title}
@@ -88,6 +90,6 @@ export default function PostPage({ params }: { params: Params }) {
           </a>
         </footer>
       </div>
-    </>
+    </div>
   );
 }
