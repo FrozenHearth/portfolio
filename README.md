@@ -17,7 +17,7 @@
 - [x] Fix minor UI bugs
 - [x] Migrate to inbuilt SEO after upgrading to Next 13.3
 - [x] Add footer
-- [ ] Navigate between prev and next blog on blog list and details page.
+- [x] Navigate between prev and next blog on blog list and details page.
 - [ ] Add "My Work" section
 
 ## Running Locally
