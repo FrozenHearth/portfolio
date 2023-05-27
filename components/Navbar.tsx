@@ -10,30 +10,18 @@ import { useEffect, useRef, useState } from 'react';
 type NavItems = {
   [key: string]: {
     name: string;
-    x: number;
-    y: number;
-    w: string;
   };
 };
 
 const navItems: NavItems = {
   '/': {
     name: 'Home',
-    x: 0,
-    y: 0,
-    w: '65px',
   },
   '/about': {
     name: 'About',
-    x: 64,
-    y: 35,
-    w: '65px',
   },
   '/blog': {
     name: 'Blog',
-    x: 128,
-    y: 70,
-    w: '56px',
   },
 };
 
