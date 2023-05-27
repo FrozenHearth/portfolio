@@ -10,9 +10,6 @@ import { useEffect, useRef, useState } from 'react';
 type NavItems = {
   [key: string]: {
     name: string;
-    x: number;
-    y: number;
-    w: string;
   };
 };
 
