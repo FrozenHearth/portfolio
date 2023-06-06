@@ -50,7 +50,7 @@ export default function About() {
             <h1 className="text-3xl md:text-5xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
               {`Hi, I'm Vishwanath B. I live in Bengaluru, the Silicon Valley of India.`}
             </h1>
-            <p className=" text-slate-600 dark:text-slate-400 mt-8 text-lg md:text-xl">
+            <p className=" text-slate-600 dark:text-slate-300 mt-8 text-lg md:text-xl">
               After completing my final year project in undergrad, I discovered
               my passion for frontend engineering. Since then, I have been on a
               continuous learning journey.
@@ -77,7 +77,7 @@ export default function About() {
         Stuff I know:
       </h2>
 
-      <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl mt-4 block">
+      <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl mt-4 block">
         HTML, CSS/SASS, Javascript/Typescript, React, Redux, Vue, Vuex, Next.js,
         Tailwind.
       </p>
