@@ -66,11 +66,11 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="dark:text-white text-slate-800 hidden items-center lg:flex gap-3 font-bold 
-          lg:font-bold hover:text-sky-500 hover:cursor-pointer text-xl lg:text-3xl"
+          className="hidden items-center lg:flex gap-3 font-bold 
+          lg:font-bold text-sky-400 hover:cursor-pointer text-xl lg:text-3xl"
         >
           <BrandLogo height="48" width="48" />
-          Vishwanath B.
+          Vishwanath
         </Link>
         <Link
           href="/"

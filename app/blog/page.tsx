@@ -40,7 +40,7 @@ export default function BlogListPage() {
         <h1 className="text-4xl md:text-7xl text-slate-900 dark:text-white font-bold leading-tight md:mt-4">
           I write mainly about frontend engineering.
         </h1>
-        <h2 className="text-slate-600 dark:text-slate-400 max-w-2xl text-lg md:text-xl my-0 mt-4 md:mt-8">
+        <h2 className="text-slate-600 dark:text-slate-300 max-w-2xl text-lg md:text-xl my-0 mt-4 md:mt-8">
           It is a platform for me to share my knowledge and experiences related
           to my career and technical interests. For more information, check out
           my{' '}
