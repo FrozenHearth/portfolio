@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image';
 import avatar from '@/public/images/me.avif';
 import { createOgImage } from '@/lib/createOGImage';
