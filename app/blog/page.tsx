@@ -38,12 +38,11 @@ export default function BlogListPage() {
     <>
       <div className="mt-4 md:mt-10">
         <h1 className="text-4xl md:text-7xl text-slate-900 dark:text-white font-bold leading-tight md:mt-4">
-          I write mainly about frontend engineering.
+          I write mainly about frontend on my blog.
         </h1>
         <h2 className="text-slate-600 dark:text-slate-300 max-w-2xl text-lg md:text-xl my-0 mt-4 md:mt-8">
-          It is a platform for me to share my knowledge and experiences related
-          to my career and technical interests. For more information, check out
-          my{' '}
+          Always up for a convo about web dev and tech in general. Feel free to
+          connect with me on{' '}
           <a
             href="https://linkedin.com/in/vishwanath-bhetanabhotla"
             target="_blank"
