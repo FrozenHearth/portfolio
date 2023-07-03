@@ -11,7 +11,7 @@ imageSrc: /images/arrow.avif
 
 Arrow functions are a syntactical sugar to regular functions.
 You can shorten your syntax and make things look pretty.
-But can/should you use them everywhere? It's definitely tempting to.
+But should you use them everywhere? It's definitely tempting to.
 However, arrow functions have certain rules:
 
 - Arrow functions don't have their own bindings to [this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this), [arguments](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments), or [super](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/super), and should not be used as [methods](https://developer.mozilla.org/en-US/docs/Glossary/Method).
@@ -48,8 +48,8 @@ By assigning `this` to the variable `self/that` before the setTimeout call, we c
 const obj = {
   count: 10,
   doSomethingLater() {
-    // create a reference to "this" object,
-    // and store it in a variable named "self
+    // create a reference to "this",
+    // and store it in a variable named self
     let self = this;
     setTimeout(function () {
       self.count++;

@@ -1,0 +1,61 @@
+---
+title: 'Implement call using bind'
+metaTitle: 'Implement call using bind'
+metaDesc: 'Implementing Function.prototype.call() using Function.prototype.bind()'
+summary: 'Implementing Function.prototype.call() using Function.prototype.bind()'
+publishedAt: '2023-07-03'
+imageSrc: /images/call.jpeg
+---
+
+<CustomAvatar />
+
+This was a question I encountered in one of the frontend interviews. The premise was simple; we need to implement
+[call](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) using [bind](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+by using a custom method which can have any name.
+
+Normally, the interviewer would ask you what `call/apply/bind` are, and probably ask for a polyfill-like implementation for the same.
+
+The core difference between `call` and `bind` is that `call` executes immediately, whereas we can choose to execute our bound function later on.
+
+```js
+const boundFunc = someFunc.bind(obj);
+// boundFunc has to be executed later on
+```
+
+```js
+someFunc.call(obj);
+// Immediate execution
+```
+
+Let's implement it and then break it down into parts to understand it clearly:
+
+```js title="customCallImplementation.js"
+let obj = {
+  name: 'Jake',
+};
+
+function printLastName(lastname) {
+  console.log(`${this.name} has the lastname ${lastname}`);
+}
+
+Function.prototype.myCall = function (thisArg, ...args) {
+  const result = this.bind(thisArg, ...args);
+  result(); // Execute it immediately
+};
+
+printLastName.myCall(obj, 'Peralta');
+```
+
+1. We're creating a method called `myCall` and adding it to the Function's prototype. It's not recommended to modify the `Function` prototype, but we're just doing it for the sake of this article.
+2. Our `myCall` method needs two arguments; `this` value to call our `printLastName` function with, and the comma separated arguments that can be passed one-by-one, because that's how `Function.prototype.call()` works. If this is not clear, please refer to the MDN documentation for `call` highlighted in the second line of this article.
+3. We use `Function.prototype.bind` to bind our `printLastName` function with the given `this` value, and we immediately execute it, thereby making it work like `call`.
+
+We've successfully created our own custom call method(myCall) and made it work like `call` by using `bind`. So, both the code snippets do exactly the same thing.
+
+```js
+printLastName.call(obj, 'Peralta');
+```
+
+```js
+printLastName.myCall(obj, 'Peralta');
+```
