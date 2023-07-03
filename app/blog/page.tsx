@@ -66,14 +66,12 @@ export default function BlogListPage() {
               href={`/blog/${post.slug}`}
               className="hover:cursor-pointer group hover:rounded-lg my-4 overflow-hidden flex flex-col"
             >
-              <div className="rounded-lg border-transparent border-2 group-hover:border-sky-500 p-1 overflow-hidden">
+              <div className="h-[500px] relative rounded-lg border-transparent border-2 group-hover:border-sky-500 p-1 overflow-hidden">
                 <Image
                   src={post.imageSrc as string}
-                  alt="debounce"
-                  width={373}
-                  height={600}
-                  style={{ width: '100%' }}
-                  className="rounded-lg"
+                  alt={post.title}
+                  fill
+                  className="rounded-lg object-cover"
                 />
               </div>
               <div className="mt-3 sm:mt-6 p-1">

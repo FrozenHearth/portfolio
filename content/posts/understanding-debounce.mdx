@@ -1,6 +1,6 @@
 ---
-title: 'Understanding the debounce implementation'
-metaTitle: 'Understanding the debounce implementation'
+title: 'Understanding debounce'
+metaTitle: 'Understanding debounce'
 metaDesc: 'Diving deep into implementing debounce'
 summary: 'Diving deep into implementing debounce'
 publishedAt: '2023-03-26'
@@ -9,11 +9,9 @@ imageSrc: /images/debounce.avif
 
 <CustomAvatar />
 
-Being asked to implement `debounce` in an interview is a very common scenario. Normally, in our day-to-day job, we use lodash's debounce package. But understanding how it works under the hood is a whole other ballgame.
+Being asked to implement `debounce` in an interview is a very common scenario. Normally, in our day-to-day job, we use lodash's debounce package. But understanding how it works under the hood can make you a better developer.
 
-A `debounce` is a higher-order function, which is a function that returns another function.
-
-**Debouncing** can be also be defined as a strategy that lets us improve performance by waiting until a certain amount of time has passed before triggering an event. When the user stops triggering the event, our code will run.
+**Debouncing** can be defined as a strategy that lets us improve performance by waiting until a certain amount of time has passed before triggering an event. When the user stops triggering the event, our code will run.
 
 Let's take an example of how we'd use it in a React component:
 
@@ -63,7 +61,7 @@ const debounce = (callback, wait) => {
 };
 ```
 
-Whoa, this looks very confusing, doesn't it? The simplest way to understand code is to break it down into parts.
+The simplest way to understand code is to break it down into parts.
 
 As per our understanding:
 
