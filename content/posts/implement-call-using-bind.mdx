@@ -43,7 +43,7 @@ Function.prototype.myCall = function (thisArg, ...args) {
   result(); // Execute it immediately
 };
 
-printLastName.myCall(obj, 'Peralta');
+printLastName.myCall(obj, 'Peralta'); // Jake has the lastname Peralta
 ```
 
 1. We're creating a method called `myCall` and adding it to the Function's prototype. It's not recommended to modify the `Function` prototype, but we're just doing it for the sake of this article.
@@ -54,8 +54,10 @@ We've successfully created our own custom call method(myCall) and made it work l
 
 ```js
 printLastName.call(obj, 'Peralta');
+// Jake has the lastname Peralta
 ```
 
 ```js
 printLastName.myCall(obj, 'Peralta');
+// Jake has the lastname Peralta
 ```
