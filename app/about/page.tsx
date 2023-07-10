@@ -5,33 +5,34 @@ import { createOgImage } from '@/lib/createOGImage';
 import type { Metadata } from 'next';
 import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 
-const ogImage = createOgImage({
-  title: 'Vishwanath B. | About Me',
-  meta: ['Passionate frontend engineer'].join(''),
-});
-
-export const metadata: Metadata = {
-  title: 'Vishwanath B. | About Me',
-  description: 'Passionate front-end engineer',
-  openGraph: {
-    images: [
-      {
-        url: `${ogImage}?${randomFiveDigitNumber()}`,
-        width: 1600,
-        height: 836,
-        alt: 'Vishwanath B.',
-      },
-    ],
+export async function generateMetadata(): Promise<Metadata> {
+  const ogImage = createOgImage({
+    title: 'Vishwanath B. | About Me',
+    meta: ['Passionate frontend engineer'].join(''),
+  });
+  return {
     title: 'Vishwanath B. | About Me',
     description: 'Passionate front-end engineer',
-    url: `${process.env.NEXT_PUBLIC_URL}/about`,
-  },
-  twitter: {
-    title: 'Vishwanath B.',
-    card: 'summary_large_image',
-    description: 'Passionate front-end engineer',
-  },
-};
+    openGraph: {
+      images: [
+        {
+          url: `${ogImage}?${randomFiveDigitNumber()}`,
+          width: 1600,
+          height: 836,
+          alt: 'Vishwanath B.',
+        },
+      ],
+      title: 'Vishwanath B. | About Me',
+      description: 'Passionate front-end engineer',
+      url: `${process.env.NEXT_PUBLIC_URL}/about`,
+    },
+    twitter: {
+      title: 'Vishwanath B.',
+      card: 'summary_large_image',
+      description: 'Passionate front-end engineer',
+    },
+  };
+}
 
 export default function About() {
   return (

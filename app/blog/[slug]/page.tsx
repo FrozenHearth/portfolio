@@ -6,15 +6,7 @@ import { createOgImage } from '@/lib/createOGImage';
 import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 import type { Metadata } from 'next';
 import Sidebar from '@/components/Sidebar';
-
-type Params = {
-  slug: string;
-};
-
-const ogImage = createOgImage({
-  title: 'Vishwanath B. | Blog',
-  meta: ['Passionate frontend engineer'].join(''),
-});
+import { Params } from '@/app/types';
 
 export async function generateMetadata({
   params,
@@ -22,6 +14,10 @@ export async function generateMetadata({
   params: Params;
 }): Promise<Metadata> {
   const post = allPosts.find((post) => post.slug === params.slug);
+  const ogImage = createOgImage({
+    title: post?.title || '',
+    meta: [post?.summary].join(''),
+  });
   return {
     title: `${post?.title} | Vishwanath B.`,
     description: `${post?.summary}`,
