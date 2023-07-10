@@ -24,7 +24,7 @@ export const createOgImage = ({
     // Roboto, but smaller
     `l_text:Roboto_48:${e(meta)},co_rgb:ffe4e680,c_fit,w_1400`,
     // Positioning
-    `fl_layer_apply,g_south_west,x_100,y_100`,
+    `fl_layer_apply,g_south_west,x_100,y_60`,
 
     // PROFILE IMAGE
     // dynamically fetched from twitter profile
