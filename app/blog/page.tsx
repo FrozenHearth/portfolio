@@ -6,32 +6,34 @@ import { createOgImage } from '@/lib/createOGImage';
 import type { Metadata } from 'next';
 import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 
-const ogImage = createOgImage({
-  title: 'Vishwanath B. | Blog',
-  meta: ['Passionate frontend engineer'].join(''),
-});
-export const metadata: Metadata = {
-  title: 'Vishwanath B. | Blog',
-  description: 'Welcome to my blog. I write mainly about frontend stuff.',
-  openGraph: {
-    images: [
-      {
-        url: `${ogImage}?${randomFiveDigitNumber()}`,
-        width: 1600,
-        height: 836,
-        alt: 'Vishwanath B.',
-      },
-    ],
+export async function generateMetadata(): Promise<Metadata> {
+  const ogImage = createOgImage({
+    title: 'Vishwanath B. | Blog',
+    meta: ['Passionate frontend engineer'].join(''),
+  });
+  return {
     title: 'Vishwanath B. | Blog',
     description: 'Welcome to my blog. I write mainly about frontend stuff.',
-    url: `${process.env.NEXT_PUBLIC_URL}/blog`,
-  },
-  twitter: {
-    title: 'Vishwanath B. | Blog',
-    description: 'Welcome to my blog. I write mainly about frontend stuff.',
-    card: 'summary_large_image',
-  },
-};
+    openGraph: {
+      images: [
+        {
+          url: `${ogImage}?${randomFiveDigitNumber()}`,
+          width: 1600,
+          height: 836,
+          alt: 'Vishwanath B.',
+        },
+      ],
+      title: 'Vishwanath B. | Blog',
+      description: 'Welcome to my blog. I write mainly about frontend stuff.',
+      url: `${process.env.NEXT_PUBLIC_URL}/blog`,
+    },
+    twitter: {
+      title: 'Vishwanath B. | Blog',
+      description: 'Welcome to my blog. I write mainly about frontend stuff.',
+      card: 'summary_large_image',
+    },
+  };
+}
 
 export default function BlogListPage() {
   return (
