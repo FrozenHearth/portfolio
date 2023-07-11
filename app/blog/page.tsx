@@ -9,7 +9,7 @@ import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 export async function generateMetadata(): Promise<Metadata> {
   const ogImage = createOgImage({
     title: 'Vishwanath B. | Blog',
-    meta: ['Passionate frontend engineer'].join(''),
+    meta: ['Welcome to my blog.'].join(''),
   });
   return {
     title: 'Vishwanath B. | Blog',

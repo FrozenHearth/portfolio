@@ -8,11 +8,11 @@ import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
 export async function generateMetadata(): Promise<Metadata> {
   const ogImage = createOgImage({
     title: 'Vishwanath B. | About Me',
-    meta: ['Passionate frontend engineer'].join(''),
+    meta: ['A few things about me'].join(''),
   });
   return {
     title: 'Vishwanath B. | About Me',
-    description: 'Passionate front-end engineer',
+    description: 'Welcome to my about page.',
     openGraph: {
       images: [
         {
@@ -23,13 +23,13 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       ],
       title: 'Vishwanath B. | About Me',
-      description: 'Passionate front-end engineer',
+      description: 'Welcome to my about page.',
       url: `${process.env.NEXT_PUBLIC_URL}/about`,
     },
     twitter: {
       title: 'Vishwanath B.',
       card: 'summary_large_image',
-      description: 'Passionate front-end engineer',
+      description: 'Welcome to my about page.',
     },
   };
 }
