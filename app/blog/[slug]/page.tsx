@@ -36,7 +36,7 @@ export async function generateMetadata({
       type: 'article',
     },
     twitter: {
-      title: 'Vishwanath B. | Blog',
+      title: `${post?.title}`,
       description: `${post?.summary}`,
       card: 'summary_large_image',
     },
