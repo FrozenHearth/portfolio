@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Vishwanath B.',
     description: 'Welcome to my personal website',
+    metadataBase: new URL('http://localhost:3000'),
     openGraph: {
       images: [
         {
