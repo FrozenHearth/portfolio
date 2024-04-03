@@ -3,7 +3,7 @@ export function ResumeButton() {
     <a
       className="font-bold text-white dark:text-black bg-black dark:bg-white mt-4 md:mt-10 px-11 md:w-max w-full py-3 rounded-md 
 flex items-center justify-center gap-3"
-      href="https://drive.google.com/file/d/14JtqlU2Jy4WHBZ79RCWNfR-IzFtHhNEs/view?usp=sharing"
+      href="/Vishwanath_B_Resume.pdf"
       rel="noopener noreferrer"
       target="_blank"
     >
