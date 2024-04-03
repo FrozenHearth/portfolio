@@ -13,6 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Vishwanath B. | About Me',
     description: 'Welcome to my about page.',
+    metadataBase: new URL('http://localhost:3000'),
     openGraph: {
       images: [
         {
