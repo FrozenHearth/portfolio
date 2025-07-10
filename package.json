@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true next build",
+    "optimize-images": "node optimize-images.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.42.0",
@@ -15,7 +17,6 @@
     "@types/react-dom": "^18.2.23",
     "clsx": "^1.2.1",
     "contentlayer": "^0.3.4",
-    "date-fns": "^2.30.0",
     "eslint": "8.38.0",
     "eslint-config-next": "^14.1.4",
     "next": "^14.1.4",
@@ -32,6 +33,7 @@
     "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^14.1.4",
     "@tailwindcss/typography": "^0.5.12",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",

@@ -1,18 +1,19 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, memo, useCallback } from 'react';
 import useSWR from 'swr';
 import LoadingDots from './LoadingDots';
 import { useParams } from 'next/navigation';
 import clsx from 'clsx';
 
-async function fetcher<JSON>(
-  input: RequestInfo,
-  init?: RequestInit
-): Promise<JSON> {
-  const res = await fetch(input, init);
+// Optimized fetcher with better error handling
+const fetcher = async <T,>(url: string): Promise<T> => {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error('Failed to fetch');
+  }
   return res.json();
-}
+};
 
 type ViewCounterProps = {
   slug?: string | string[];
@@ -23,24 +24,40 @@ type ViewCountData = {
   total: number;
 };
 
-export default function ViewCounter({
+const ViewCounter = memo(function ViewCounter({
   slug,
   trackView = true,
 }: ViewCounterProps) {
-  const { data, isLoading } = useSWR<ViewCountData>(
+  const { data, isLoading, error } = useSWR<ViewCountData>(
     slug ? `/api/views/${slug}` : null,
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+      dedupingInterval: 60000, // 1 minute
+    }
   );
   const { slug: paramsSlug } = useParams() || {};
   const views = data?.total || 0;
 
-  useEffect(() => {
+  // Memoize the track view function
+  const trackViewFunction = useCallback(() => {
     if (trackView && slug) {
       fetch(`/api/views/${slug}`, {
         method: 'POST',
+      }).catch(() => {
+        // Silently handle errors for analytics
       });
     }
   }, [slug, trackView]);
+
+  useEffect(() => {
+    trackViewFunction();
+  }, [trackViewFunction]);
+
+  if (error) {
+    return <span className="text-slate-400">-- views</span>;
+  }
 
   if (isLoading) {
     return <LoadingDots />;
@@ -52,4 +69,6 @@ export default function ViewCounter({
   });
 
   return <span className={textStyle}>{views.toLocaleString()} views</span>;
-}
+});
+
+export default ViewCounter;

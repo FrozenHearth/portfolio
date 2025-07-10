@@ -1,15 +1,27 @@
-export default function LoadingDots() {
+import { memo } from 'react';
+
+const LoadingDots = memo(function LoadingDots() {
   return (
-    <span className="space-x-1">
-      <span className="inline-flex animate-[loading_1.4s_ease-in-out_infinite] rounded-full">
-        &bull;
-      </span>
-      <span className="inline-flex animate-[loading_1.4s_ease-in-out_0.2s_infinite] rounded-full">
-        &bull;
-      </span>
-      <span className="inline-flex animate-[loading_1.4s_ease-in-out_0.4s_infinite] rounded-full">
-        &bull;
-      </span>
+    <span 
+      className="inline-flex items-center gap-1"
+      aria-label="Loading"
+      role="status"
+    >
+      <span className="sr-only">Loading...</span>
+      <span 
+        className="w-1 h-1 bg-slate-400 rounded-full animate-pulse"
+        style={{ animationDelay: '0ms' }}
+      />
+      <span 
+        className="w-1 h-1 bg-slate-400 rounded-full animate-pulse"
+        style={{ animationDelay: '150ms' }}
+      />
+      <span 
+        className="w-1 h-1 bg-slate-400 rounded-full animate-pulse"
+        style={{ animationDelay: '300ms' }}
+      />
     </span>
   );
-};
+});
+
+export default LoadingDots;
