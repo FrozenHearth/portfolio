@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { createOgImage } from '@/lib/createOGImage';
 import type { Metadata } from 'next';
 import randomFiveDigitNumber from '@/lib/generateFiveDigitNumber';
+import { memo } from 'react';
 
 export async function generateMetadata(): Promise<Metadata> {
   const ogImage = createOgImage({
@@ -36,7 +37,49 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
+// Memoized blog post card component for better performance
+const BlogPostCard = memo(function BlogPostCard({ 
+  post, 
+  priority = false 
+}: { 
+  post: typeof allPosts[0]; 
+  priority?: boolean; 
+}) {
+  return (
+    <Link
+      href={`/blog/${post.slug}`}
+      className="hover:cursor-pointer group hover:rounded-lg my-4 overflow-hidden flex flex-col"
+    >
+      <div className="h-[500px] relative rounded-lg border-transparent border-2 group-hover:border-sky-500 p-1 overflow-hidden">
+        <Image
+          src={post.imageSrc as string}
+          alt={post.title}
+          fill
+          className="rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+          priority={priority}
+          sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+        />
+      </div>
+      <div className="mt-3 sm:mt-6 p-1">
+        <span className="text-slate-400 font-semibold dark:text-slate-400 text-lg sm:text-xl my-2">
+          {post.publishedAtFormatted}
+          <span className="mx-3"> — </span>
+          <ViewCounter trackView={false} slug={post.slug} />
+        </span>
+        <header className="text-slate-900 dark:text-white font-semibold leading-tight text-2xl sm:text-3xl mt-4">
+          {post.title}
+        </header>
+      </div>
+    </Link>
+  );
+});
+
 export default function BlogListPage() {
+  // Pre-sort posts for better performance
+  const sortedPosts = allPosts.sort(
+    (a, b) => new Date(b.publishedAtFormatted).getTime() - new Date(a.publishedAtFormatted).getTime()
+  );
+
   return (
     <>
       <div className="mt-4 md:mt-10">
@@ -50,45 +93,20 @@ export default function BlogListPage() {
             href="https://linkedin.com/in/vishwanath-bhetanabhotla"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sky-400 hover:underline"
+            className="text-sky-400 hover:underline transition-colors"
           >
             Linkedin.
           </a>
         </h2>
       </div>
       <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 gap-y-6 mt-8">
-        {allPosts
-          .sort(
-            (a, b) =>
-              new Date(b.publishedAtFormatted).valueOf() -
-              new Date(a.publishedAtFormatted).valueOf()
-          )
-          .map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="hover:cursor-pointer group hover:rounded-lg my-4 overflow-hidden flex flex-col"
-            >
-              <div className="h-[500px] relative rounded-lg border-transparent border-2 group-hover:border-sky-500 p-1 overflow-hidden">
-                <Image
-                  src={post.imageSrc as string}
-                  alt={post.title}
-                  fill
-                  className="rounded-lg object-cover"
-                />
-              </div>
-              <div className="mt-3 sm:mt-6 p-1">
-                <span className="text-slate-400 font-semibold dark:text-slate-400 text-lg sm:text-xl my-2">
-                  {post.publishedAtFormatted}
-                  <span className="mx-3"> — </span>
-                  <ViewCounter trackView={false} slug={post.slug} />
-                </span>
-                <header className="text-slate-900 dark:text-white font-semibold leading-tight text-2xl sm:text-3xl mt-4">
-                  {post.title}
-                </header>
-              </div>
-            </Link>
-          ))}
+        {sortedPosts.map((post, index) => (
+          <BlogPostCard 
+            key={post.slug} 
+            post={post} 
+            priority={index < 3} // Prioritize first 3 images
+          />
+        ))}
       </div>
     </>
   );
