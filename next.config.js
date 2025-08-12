@@ -1,14 +1,21 @@
 const { withContentlayer } = require('next-contentlayer');
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
+const isAnalyze = process.env.ANALYZE === 'true';
+const isTurbopack =
+  process.env.TURBOPACK === '1' ||
+  process.env.__NEXT_TURBOPACK === '1' ||
+  process.env.NEXT_TURBOPACK === '1';
+
+// Only enable bundle analyzer when ANALYZE=true and not using Turbopack
+const withBundleAnalyzer =
+  isAnalyze && !isTurbopack
+    ? require('@next/bundle-analyzer')({ enabled: true })
+    : (config) => config;
 
 const basePath = process.env.BASE_PATH ?? '';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   // Image optimization
   images: {
     domains: ['localhost'],
@@ -72,6 +79,8 @@ const nextConfig = {
   env: {
     basePath,
   },
+  // Explicit Turbopack section to avoid warnings when Webpack isn't configured for it
+  turbopack: {},
 };
 
 module.exports = withBundleAnalyzer(withContentlayer(nextConfig));

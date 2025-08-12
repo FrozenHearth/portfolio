@@ -11,9 +11,10 @@ import { Params } from '@/app/types';
 export async function generateMetadata({
   params,
 }: {
-  params: Params;
+  params: Promise<Params>;
 }): Promise<Metadata> {
-  const post = allPosts.find((post) => post.slug === params.slug);
+  const { slug } = await params;
+  const post = allPosts.find((post) => post.slug === slug);
   const ogImage = createOgImage({
     title: post?.title || '',
     meta: [post?.summary].join(''),
@@ -50,8 +51,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function PostPage({ params }: { params: Params }) {
-  const post = allPosts.find((post) => post.slug === params.slug);
+export default async function PostPage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
+  const { slug } = await params;
+  const post = allPosts.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

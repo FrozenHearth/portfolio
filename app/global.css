@@ -1,7 +1,7 @@
+@import './syntax-highlighting.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './syntax-highlighting.css';
 
 html {
   min-width: 360px;
