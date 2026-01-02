@@ -4,7 +4,7 @@
 - **Deployment**: [Vercel](https://vercel.com)
 - **Styling**: [Tailwind](https://tailwindcss.com)
 - **Syntax Highlighting**: [Rehype](https://github.com/rehypejs/rehype), [ContentLayer](https://www.contentlayer.dev/), [Shiki](https://shiki.matsu.io/)
-- **SEO**: Inbuilt SEO by [Next 13.3](https://beta.nextjs.org/docs/guides/seo#usage)
+- **SEO**: Inbuilt SEO by [Next 14.2.35](https://nextjs.org/docs/app/getting-started/metadata-and-og-images#usage)
 
 ## Things to add:
 
@@ -18,11 +18,11 @@
 - [x] Migrate to inbuilt SEO after upgrading to Next 13.3
 - [x] Add footer
 - [x] Navigate between prev and next blog on blog list and details page.
-- [ ] Add "My Work" section
+- [x] Fix critical vulnerabilities
 
 ## Running Locally
 
-Requires Node.js v18+.
+Requires Node.js v22 (LTS).
 
 ```bash
 git clone https://github.com/frozenhearth/portfolio.git
