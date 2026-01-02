@@ -15,7 +15,7 @@
 - [x] Migrate to app directory
 - [x] Add light mode & light/dark mode toggle
 - [x] Fix minor UI bugs
-- [x] Migrate to inbuilt SEO after upgrading to Next 13.3
+- [x] Migrate to inbuilt SEO after upgrading to Next 14.2.35
 - [x] Add footer
 - [x] Navigate between prev and next blog on blog list and details page.
 - [x] Fix critical vulnerabilities
