@@ -40,7 +40,7 @@ export default function Home() {
     <>
       <div className="py-4 md:p-0">
         <header className="mt-0 pt-2 md:pt-6 md:flex md:flex-col md:items-center">
-          <h1 className="text-4xl md:text-7xl text-slate-900 dark:text-white md:text-center font-bold leading-tight mt-4">
+          <h1 className="text-4xl md:text-7xl text-slate-900 dark:text-white md:text-center font-bold leading-tight mt-4 md:mt-8">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600">
               Senior Frontend
             </span>{' '}

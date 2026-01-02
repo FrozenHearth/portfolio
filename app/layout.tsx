@@ -71,7 +71,12 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://github.com" />
         <link rel="dns-prefetch" href="https://linkedin.com" />
       </head>
-      <body className="dark:bg-[#1f2028] bg-white antialiased min-h-screen flex flex-col">
+      <body className="dark:bg-[#1f2028] bg-white antialiased min-h-screen flex flex-col relative">
+        <div className="fixed inset-0 pointer-events-none -z-10">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-400/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-400/20 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-pink-600/20 via-transparent to-transparent" />
+        </div>
         <Providers>
           <Navbar />
           <main className="flex-auto min-w-0 md:mt-0 flex flex-col md:pt-12 mx-[6vw] md:mx-[10vw] 2xl:mx-[20vw] justify-center">
