@@ -7,13 +7,20 @@ import type { Metadata, Viewport } from 'next';
 export const metadata: Metadata = {
   title: {
     default: 'Vishwanath B. - Frontend Engineer',
-    template: '%s | Vishwanath B.'
+    template: '%s | Vishwanath B.',
   },
-  description: 'Frontend engineer, hobbyist guitarist and space lover. Welcome to my portfolio.',
-  keywords: ['Frontend Developer', 'React', 'Next.js', 'TypeScript', 'Web Development'],
+  description:
+    'Senior Frontend Engineer and passionate guitarist. Welcome to my portfolio.',
+  keywords: [
+    'Senior Frontend Engineer',
+    'React',
+    'Next.js',
+    'Typescript',
+    'Web Development',
+  ],
   authors: [{ name: 'Vishwanath B.' }],
   creator: 'Vishwanath B.',
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'),
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -42,7 +49,7 @@ export const viewport: Viewport = {
   maximumScale: 5,
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#1f2028' }
+    { media: '(prefers-color-scheme: dark)', color: '#1f2028' },
   ],
 };
 
@@ -54,10 +61,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* Preload critical resources */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* DNS prefetch for external domains */}
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+
         <link rel="dns-prefetch" href="https://github.com" />
         <link rel="dns-prefetch" href="https://linkedin.com" />
       </head>

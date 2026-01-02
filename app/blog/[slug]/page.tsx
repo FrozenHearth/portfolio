@@ -21,7 +21,9 @@ export async function generateMetadata({
   return {
     title: `${post?.title} | Vishwanath B.`,
     description: `${post?.summary}`,
-    metadataBase: new URL('http://localhost:3000'),
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
+    ),
     openGraph: {
       images: [
         {

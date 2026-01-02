@@ -13,7 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'Vishwanath B. | About Me',
     description: 'Welcome to my about page.',
-    metadataBase: new URL('http://localhost:3000'),
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
+    ),
     openGraph: {
       images: [
         {
@@ -50,24 +52,38 @@ export default function About() {
             />
           </div>
           <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-3xl md:text-5xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
-              {`Hey, I'm Vishwanath. I live in Bangalore, the Silicon Valley of India. 👋`}
+            <h1 className="text-3xl md:text-5xl text-slate-900 dark:text-white font-medium leading-tight md:mt-4">
+              {`Hi, I'm Vishwanath, a Senior Frontend Engineer at`}{' '}
+              <a
+                href="https://www.reltio.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-500"
+              >
+                Reltio
+              </a>
+              . 👋
             </h1>
             <p className=" text-slate-600 dark:text-slate-300 mt-8 text-lg md:text-xl">
               After completing my final year project in undergrad, I discovered
-              my passion for web dev, especially frontend. Since then, I have
-              been on a continuous learning journey.
+              my passion for frontend. Since then, I have been on a continuous
+              learning journey.
               <br />
               <br />
-              I'm obsessed with crafting pixel-perfect UIs, proficient in HTML,
-              CSS, Javascript/Typescript, and have worked with Angular, React,
-              and Vue in my career. Additionally, I have dabbled with Node.js,
-              GraphQL, and MongoDB for a short period of time.
+              My engineering career began in 2018, where I was a fullstack
+              intern at RedHat. After which I worked at various startups,
+              spanning from edtech/patenting industries to huge logistics
+              players like Delhivery, all of which were majorly UI roles,
+              although at Delhivery I was lucky enough to work fullstack when
+              the need arose. Recently, I joined Reltio as a Senior Frontend
+              Engineer, trying to learn some new tech whenever I get time,
+              especially AI/ML.
               <br />
               <br />
-              From the last few months, I've started contributing to Open
-              Source, and you can always find me in a React/Javascript or a FOSS
-              meetup.
+              I'm obsessed with crafting pixel-perfect UIs, proficient in
+              Javascript/Typescript, and have used React, Next.js, Vue & Angular
+              for the UI, while working fullstack occasionally with
+              Node(Express), Java(Springboot) and Python(Flask/FastAPI).
             </p>
           </div>
         </div>
@@ -75,21 +91,12 @@ export default function About() {
 
       <hr className="h-px my-8 border-0 bg-gray-700"></hr>
 
-      <h2 className="text-3xl md:text-4xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
-        Technologies I know:
+      <h2 className="text-3xl md:text-4xl text-slate-900 dark:text-white font-medium leading-tight md:mt-4">
+        Things I am currently learning:
       </h2>
 
       <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl mt-4 block">
-        HTML, CSS/SASS, Javascript/Typescript, React, Redux, Vue 2, Vuex,
-        Next.js, Tailwind.
-      </p>
-
-      <h2 className="text-3xl md:text-4xl text-slate-900 dark:text-white  font-bold leading-tight md:mt-4">
-        Technologies I am currently learning:
-      </h2>
-
-      <p className="text-slate-600 dark:text-slate-300 text-lg md:text-xl mt-4 block">
-        Vue 3, Kafka, AWS, Docker, Redis
+        Kafka, AWS, Docker, AI/ML, LLMs
       </p>
     </>
   );

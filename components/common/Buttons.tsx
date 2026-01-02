@@ -34,22 +34,6 @@ const GitHubIcon = memo(function GitHubIcon() {
   );
 });
 
-export const ResumeButton = memo(function ResumeButton() {
-  return (
-    <a
-      className="font-bold text-white dark:text-black bg-black dark:bg-white mt-4 md:mt-10 px-11 md:w-max w-full py-3 rounded-md 
-flex items-center justify-center gap-3 hover:opacity-90 transition-opacity"
-      href="/Vishwanath_B_Resume.pdf"
-      rel="noopener noreferrer"
-      target="_blank"
-      aria-label="Download Resume"
-    >
-      <DownloadIcon />
-      Resume
-    </a>
-  );
-});
-
 export const GithubButton = memo(function GithubButton() {
   return (
     <a

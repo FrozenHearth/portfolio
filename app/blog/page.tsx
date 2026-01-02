@@ -14,8 +14,10 @@ export async function generateMetadata(): Promise<Metadata> {
   });
   return {
     title: 'Vishwanath B. | Blog',
-    description: 'Welcome to my blog. I write mainly about frontend stuff.',
-    metadataBase: new URL('http://localhost:3000'),
+    description: 'I blog mostly about JS quirks.',
+    metadataBase: new URL(
+      process.env.NEXT_PUBLIC_URL || 'http://localhost:3000'
+    ),
     openGraph: {
       images: [
         {
@@ -26,24 +28,23 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       ],
       title: 'Vishwanath B. | Blog',
-      description: 'Welcome to my blog. I write mainly about frontend stuff.',
+      description: 'I blog mostly about JS quirks.',
       url: `${process.env.NEXT_PUBLIC_URL}/blog`,
     },
     twitter: {
       title: 'Vishwanath B. | Blog',
-      description: 'Welcome to my blog. I write mainly about frontend stuff.',
+      description: 'I blog mostly about JS quirks.',
       card: 'summary_large_image',
     },
   };
 }
 
-// Memoized blog post card component for better performance
-const BlogPostCard = memo(function BlogPostCard({ 
-  post, 
-  priority = false 
-}: { 
-  post: typeof allPosts[0]; 
-  priority?: boolean; 
+const BlogPostCard = memo(function BlogPostCard({
+  post,
+  priority = false,
+}: {
+  post: (typeof allPosts)[0];
+  priority?: boolean;
 }) {
   return (
     <Link
@@ -75,37 +76,25 @@ const BlogPostCard = memo(function BlogPostCard({
 });
 
 export default function BlogListPage() {
-  // Pre-sort posts for better performance
   const sortedPosts = allPosts.sort(
-    (a, b) => new Date(b.publishedAtFormatted).getTime() - new Date(a.publishedAtFormatted).getTime()
+    (a, b) =>
+      new Date(b.publishedAtFormatted).getTime() -
+      new Date(a.publishedAtFormatted).getTime()
   );
 
   return (
     <>
       <div className="mt-4 md:mt-10">
-        <h1 className="text-4xl md:text-7xl text-slate-900 dark:text-white font-bold leading-tight md:mt-4">
-          I write mainly about frontend on my blog.
+        <h1 className="text-4xl md:text-6xl text-slate-900 dark:text-white font-medium leading-tight md:mt-4">
+          I blog mostly about JS quirks.
         </h1>
-        <h2 className="text-slate-600 dark:text-slate-300 max-w-2xl text-lg md:text-xl my-0 mt-4 md:mt-8">
-          Always up for a convo about web dev and tech in general. Feel free to
-          connect with me on{' '}
-          <a
-            href="https://linkedin.com/in/vishwanath-bhetanabhotla"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sky-400 hover:underline transition-colors"
-          >
-            Linkedin.
-          </a>
+        <h2 className="text-slate-600 dark:text-slate-300 max-w-2xl text-lg md:text-2xl my-0 mt-4 md:mt-8">
+          Have a look at my writing.
         </h2>
       </div>
       <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 gap-y-6 mt-8">
         {sortedPosts.map((post, index) => (
-          <BlogPostCard 
-            key={post.slug} 
-            post={post} 
-            priority={index < 3} // Prioritize first 3 images
-          />
+          <BlogPostCard key={post.slug} post={post} priority={index < 3} />
         ))}
       </div>
     </>

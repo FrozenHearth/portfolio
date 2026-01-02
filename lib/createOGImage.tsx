@@ -1,5 +1,3 @@
-//TODO: Switch to Next OG Image generation if possible
-
 export const createOgImage = ({
   title,
   meta,
@@ -9,7 +7,6 @@ export const createOgImage = ({
 }) =>
   [
     // ACCOUNT PREFIX
-    // Add your own Cloudinary account ID.
     `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_ID}/image/upload`,
     // Composed Image Transformations
     `w_1600,h_836,q_100`,

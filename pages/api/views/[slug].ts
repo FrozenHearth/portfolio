@@ -6,7 +6,6 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === 'POST') {
-    // Call our stored procedure with the page_slug set by the request params slug
     await SupabaseAdmin.rpc('increment_page_view', {
       page_slug: req.query.slug,
     });
@@ -16,7 +15,6 @@ export default async function handler(
   }
 
   if (req.method === 'GET') {
-    // Query the pages table in the database where slug equals the request params slug.
     const { data } = await SupabaseAdmin.from('pages')
       .select('view_count')
       .filter('slug', 'eq', req.query.slug);

@@ -27,7 +27,7 @@ const Navbar = memo(function Navbar() {
   // Memoized scroll handler with throttling
   const handleScroll = useCallback(() => {
     let ticking = false;
-    
+
     const updateStickyState = () => {
       if (navbarRef.current) {
         setIsSticky(navbarRef.current.getBoundingClientRect().top <= 0);
@@ -80,7 +80,6 @@ const Navbar = memo(function Navbar() {
           aria-label="Home - Vishwanath"
         >
           <BrandLogo height="48" width="48" />
-          Vishwanath
         </Link>
         <Link
           href="/"
