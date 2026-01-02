@@ -12,7 +12,6 @@ type NavItem = {
   href: string;
 };
 
-// Memoized navigation items to prevent recreation
 const navItems: NavItem[] = [
   { name: 'Home', href: '/' },
   { name: 'About', href: '/about' },
@@ -24,7 +23,6 @@ const Navbar = memo(function Navbar() {
   const [isSticky, setIsSticky] = useState(false);
   const navbarRef = useRef<HTMLElement>(null);
 
-  // Memoized scroll handler with throttling
   const handleScroll = useCallback(() => {
     let ticking = false;
 
@@ -60,9 +58,9 @@ const Navbar = memo(function Navbar() {
       md:flex-shrink-0 md:mx-0 my-6 md:my-0 md:py-4 md:mt-16 px-[2vw] 
       sm:px-0 md:px-[10vw] 2xl:px-[20vw]`,
         {
-          'lg:border-b bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-900/75':
+          'lg:border-b bg-white supports-backdrop-blur:bg-white/60 dark:bg-slate-900/75':
             isSticky,
-          'bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent':
+          'bg-white/30 supports-backdrop-blur:bg-white/60 dark:bg-transparent':
             !isSticky,
         }
       )}
@@ -90,14 +88,15 @@ const Navbar = memo(function Navbar() {
         </Link>
         <div className="flex items-center md:gap-8 pr-0 mb-2 mt-2 md:mt-0 ml-auto">
           {navItems.map(({ href, name }) => {
-            const isActive = href === pathname;
+            const isActive =
+              href === '/' ? pathname === '/' : pathname.startsWith(href);
 
             return (
               <Link
                 key={href}
                 href={href}
                 className={clsx(
-                  'transition-all text-sm md:text-lg dark:hover:text-neutral-200 hover:text-sky-500 py-[5px] px-[10px]',
+                  'transition-all !cursor-pointer text-sm md:text-lg dark:hover:text-neutral-200 hover:text-sky-500 py-[5px] px-[10px]',
                   {
                     'dark:text-slate-300 text-slate-800': !isActive,
                     'font-semibold dark:text-white text-sky-500': isActive,

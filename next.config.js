@@ -9,23 +9,18 @@ const basePath = process.env.BASE_PATH ?? '';
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  // Image optimization
   images: {
     domains: ['localhost'],
     formats: ['image/avif', 'image/webp'],
-    minimumCacheTTL: 60 * 60 * 24 * 30, // 30 days
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
-  // Performance optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
-  // Bundle optimization
   experimental: {
     scrollRestoration: true,
   },
-  // Compression
   compress: true,
-  // Headers for better caching and security
   async headers() {
     return [
       {
